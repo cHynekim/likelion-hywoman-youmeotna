@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>곰살마트 : 회원가입</title>
+    <link rel="stylesheet" href="{% static 'css/signUp.css' %}">
+    {% block content %}
+</head>
+<body>
+    <script src="{% static 'js/signUp.js' %}"></script>
+
+
+    <nav class="logo">
+        <img src="{% static 'image/곰살마트_페이지로고.png' %}" alt="logo">
+    </nav>
+
+  
+
+    <form class="signUp" name="formcheck" method="POST">
+        {% csrf_token %}
+        <div id="mainTitle">회원가입</div>
+
+        <div class="name">
+            <div id="title">이름</div>
+            <input name="username" id="name" type="text" placeholder="홍 길 동">
+        </div>
+
+        <div class="birth">
+            <div id="title">생년월일</div>
+            <input name="birthY" id="birth" type="text" placeholder="19XX" maxlength="4">
+            <input name="birthM" id="birth" type="text" placeholder="x월" maxlength="2">
+            <input name="birthD" id="birth" type="text" placeholder="x일" maxlength="2">
+            
+        </div>
+
+        <div class="phoneNum">
+            <div id="phone">전화번호</div>
+            <input name="phonenum" id="phoneNum" type="text" oninput="autoHyphen(this)" placeholder="010-XXXX-XXXX" maxlength="13" >
+        </div>
+
+        <div class="id">
+            <div id="nickname">별명</div>
+            <input name="nickname" id="id" type="text" onkeyup="checkReg(event)"  placeholder="2글자 이상 별명을 적어주세요" >
+        </div>
+
+        <div class="password">
+            <div id="pass">비밀번호</div>
+            <input name="password1" id="password" type="password" placeholder="숫자 6자리를 입력해 주세요." maxlength="6">
+        </div>
+
+        <div class="password">
+            <div id="pass">비밀번호 확인</div>
+            <input name="password2" id="password" type="password" placeholder="비밀번호 확인" maxlength="6">
+        </div>
+
+        <button type="submit" class="agree" id="agree" onclick="formCheck()" value="Sign Up">가입하기</button>
+
+    </form>
+    {% endblock %}
+</body>
+</html>

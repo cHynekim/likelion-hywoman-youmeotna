@@ -1,0 +1,246 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'HakgyoansimWoojuR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'HakgyoansimWoojuR';
+    font-size: 30px;
+    color: #2A343D;
+}
+a{
+    color: #2A343D;
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    min-height: 630px;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center; */
+}
+#wrap{
+    margin: 0 10% 0 10%;
+    width: 80%;
+    height: 100%;
+    /* background-color: bisque; */
+}
+header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+header a{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+header img{
+    height: 100%;
+}
+
+
+main{
+    width: 100%;
+    height: 60%;
+}
+.search{
+    width: 100%;
+    height: 20%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.search form{
+    width: 80%;
+    height: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.search form input{
+    width: 75%;
+    height: 80%;
+    padding-left: 15px;
+    position: absolute;
+    left: 0;
+    border: 2px solid #FDAF96;
+    border-radius: 20px;
+    font-size: 0.6em;
+}
+.search form .btn{
+    width: 20%;
+    height: 80%;
+    position: absolute;
+    top: 5%;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.btn button{
+    background-color: #FDAF96;
+    border: none;
+    border-radius: 3px;
+    width: 45%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+.btn button:nth-of-type(2){
+    background-color: #FFF1DB;
+}
+.btn button img{
+    width: 70%;
+    max-width: 30px;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.recommand{
+    width: 100%;
+    max-width: 627px;
+    min-width: 465px;
+    height: 80%;
+    max-height: 351px;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}/*화면 커지면 상품 수 늘리기 추가해야함*/
+.recommand>span{
+    width: 30%;
+    height: 10%;
+    display: block;
+    position: absolute;
+    top: 5%;
+    font-size: 1em;
+    font-weight: bold;
+}
+.recommand .product{
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    top: 18%;
+}
+.product .nextBtn{
+    width: 95%;
+    min-width: 445px;
+    height: 10%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 1;
+}
+.product .nextBtn div{
+    width: 6%;
+    height: 100%;
+    cursor: pointer;
+}
+.product .nextBtn img{
+    width: 100%;
+    max-width: 30px;
+    object-fit: cover;
+}
+.product .list{
+    width: 130%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 9.5%;
+    transform: translate(0, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.list li{
+    float: left;
+    width: 25%;
+    max-width: 195px;
+    min-width: 150px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.list li div{
+    width: 100%;
+    max-width: 195px;
+    min-width: 150px;
+    height: 70%;
+    max-height: 172px;
+    min-height: 130px;
+    background-color: aqua;
+}
+.list li:nth-of-type(2) div{
+    background-color: rgb(243, 29, 71);
+}
+.list li:nth-of-type(3) div{
+    background-color: mediumslateblue;
+}
+.list li span{
+    display: block;
+    text-align: center;
+}
+.list li .name{
+    font-size: 0.9em;
+}
+.list li .price{
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+
+
+footer{
+    width: 100%;
+    height: 30%;
+}
+footer>div{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+footer>div div{
+    width: 48%;
+    height: 80%;
+    border-radius: 15px;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #efe5e2;
+    cursor: pointer;
+}
+footer .botMenu div{
+    background-color: #ffe74b;
+}
+footer .botMenu div:nth-of-type(2){
+    background-color: #FDAF96;
+}

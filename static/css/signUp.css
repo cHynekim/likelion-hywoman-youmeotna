@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'HakgyoansimWoojuR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px
+    
+}
+body .signUp{
+    width: auto;
+    font-size: 1.2rem;
+    /* padding: 30px; */
+}
+
+.logo >img{
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 40px auto ;
+    /* background-color: rgb(243, 228, 208); */
+}
+
+body {
+    /* box-sizing: border-box;
+    width: 100%;
+    height: auto; */
+	font-family: 'HakgyoansimWoojuR';
+    color : #2A343D;
+    background-color: rgb(255, 248, 248);
+}
+
+#mainTitle{
+    font-size: 3rem;
+    margin: 30px 0;
+    line-height: 1.5em;
+    position: relative;
+    /* background-color: antiquewhite; */
+    padding: 2px;
+}
+
+#title{
+    width: 70px;
+    height: 20px;
+    /* background-color: rgb(234, 223, 255); */
+    border: 1px solid rgb(255, 194, 173);
+    border-radius: 4px;
+    text-align: center; 
+    padding: 5px;
+    vertical-align: baseline;
+    align-items: center;  
+}
+
+
+#name,#birth,#phoneNum,#id,#password,#agree{
+    margin: 10px 0;
+
+}
+.name, .birth, .phoneNum, .id, .password, .agree{
+    padding: 20px 0;
+}
+
+input:not(#birth){
+    width: 100%;
+    padding: 20px;
+    border-style: none;
+}
+    
+#birth{
+    padding: 20px ;
+    width: auto;
+    border-style: none;
+}
+
+.agree{
+    width: 100%;
+    height: 60px;
+    border-radius: 8px;
+    display: inline-block;
+    background-color: #FDAF96;
+    color:#2A343D ;
+    box-sizing: border-box; /*아웃라인을 기준으로 박스 사이징*/
+    border-style: none;
+    font-weight: 1000;
+    font-family: 'HakgyoansimWoojuR';
+    font-size: 1.3rem;
+    cursor: pointer;
+    line-height: 20px;
+    margin: 0;
+    padding: 10px 16px;
+    position: relative;
+    left: 13px;
+    text-align: center;
+    vertical-align: baseline; /*글자 라인 맞춰서*/
+}
+
+/* 스마트폰 미디어쿼리 */
+@media screen and (max-width : 576px) {
+    body{
+        display: flex;
+        flex-direction: column; /* 수직 방향으로 요소들을 배치 */
+        justify-content: center;
+        align-items: center;
+
+        box-sizing: border-box;
+        width: 400px;
+        height: auto;
+    }
+
+    #birth{
+    padding: 20px ;
+    width: 100%;
+    border-style: none;
+}
+
+}
