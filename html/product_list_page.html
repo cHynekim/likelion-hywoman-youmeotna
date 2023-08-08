@@ -2,81 +2,100 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>상품목록 페이지</title>
+  <title>상품목록 페이지_</title>
   <link rel="stylesheet" href="../css/product_list_page.css">
 </head>
 <body>
   <!--상단 검색바, 로고-->
-  <div class="top">
-    <a href="메인페이지"><img src="../image/logo.png" class="logo"></a> 
-    <div class="Search">
-      <input type="text" placeholder="상품을 검색해보세요!">
-        <button>
-          <img src="../image/검색.png" width="20px">
-        </button>
-    </div>
-  </div>
+  <a href="../html/main.html"><img src="../image/logo.png" class="logo"></a>
+  <div class="search"> <!--검색창-->
+    <form>
+        <input type="text" placeholder="검색할 상품을 입력해주세요"> <!--입력-->
+        <div class="btn">
+            <button type="submit"> <!--확인btn-->
+                <img src="../image/searchSubmit.png">
+            </button>
+            <button type="button">
+                <img src="../image/mic.png" alt="mic">
+            </button>
+        </div>
+    </form>            
+</div>
   <!--카테고리 버튼 3개-->
   <div class="btn_container">
     <div class="popularity">
       <form>
-        <button>인기 많은순</button>
+        <a href="../html/product_list_page.html">
+          <button type="button">인기 많은순</button>
+        </a>
       </form>
     </div>
     <div class="fastest">
       <form>
-        <button>배송 빠른순</button>
+        <a href="../html/product_list_page_fast.html">
+          <button type="button">배송 빠른순</button>
+        </a>
       </form>
     </div>
     <div class="cheap">
       <form>
-        <button>가격 낮은순</button>
+        <a href="../html/product_list_page_cheap.html">
+          <button type="button">가격 낮은순</button>
+        </a>
       </form>
     </div>
   </div>
   <!--상품 이미지, 소개-->
   <div class="product_container">
     <div class="product_1">
-      <img src="">사진,소개
-      <button>
-        <img src="../image/별.png" class="star">
-      </button>
+      
+      <form>
+        <button type="button">
+          <img src="../image/별.png" class="star">
+        </button>
+      </form>
+      <img src="../image/product_grape.jpeg">
     </div>
     <div class="product_2">
-      <img src="">사진,소개
-      <button>
-        <img src="../image/별.png" class="star">
-      </button>
+      <img src="">
+      <form>
+        <button type="button">
+          <img src="../image/별.png" class="star">
+        </button>
+      </form>
     </div>
     <div class="product_3">
-      <img src="">사진,소개
-      <button>
-        <img src="../image/별.png" class="star">
-      </button>
+      <!--별-->
+      <img src="">
+      <form>
+        <button type="button">
+          <img src="../image/별.png" class="star">
+        </button>
+      </form>
     </div>
     <div class="product_4">
-      <img src="">사진,소개
+      <img src="">
+      <form>
       <button>
         <img src="../image/별.png" class="star">
       </button>
+      </form>
     </div>
   </div>
     <!--하단 버튼 두개-->
-  <div class="to_btncontainer">
-    <div class="toBookmark_btn">
-      <form>
-        <button>
-          즐겨찾기 가기
-        </button>
-      </form>
-    </div>
-    <div class="toCart_btn">
-      <form>
-        <button>
-          장바구니 가기
-        </button>
-      </form>
-    </div>
+<div class="to_btncontainer">
+  <div class="toBookmark_btn">
+    <a href="../html/bookmark_page.html">
+      <button>
+        즐겨찾기 가기
+      </button>
+    </a>
   </div>
-</body>
-</html>
+  <div class="toCart_btn">
+    <a href="../html/cart.html">
+      <button>
+        장바구니 가기
+      </button>
+    </a>
+  </div>
+</div>

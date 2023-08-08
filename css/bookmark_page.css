@@ -1,143 +1,276 @@
 @charset "utf-8";
-
 @font-face {
-  font-family: 'HakgyoansimWoojuR';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'HakgyoansimWoojuR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+/*전체 태그들의 마진, 패딩 초기화 및 글꼴 설정*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'HakgyoansimWoojuR';
+    font-size: 22px;
+    color: #2A343D;
 }
 
 html,body {
-  font-family: 'HakgyoansimWoojuR';
+  
   width: 100%;
   height: 100%;
-  /*overflow-x: hidden;*/
-  margin: 0;
-}
-.top{
-  position: relative;
-}
-/*상단 검색바, 로고*/
-.Search{
-  background-color: #FFF1DB;
-  position: relative;
-  left: 45%;
-  top: 30px;
-  border-radius: 20px;
-  width: 50%;
-  height: 50px;
+  background-color: #fff;
 }
 
-.logo {
-  position: absolute;
-  left: 10%;
-  width: 17%;
-  top: 20px;
+/*검색창,로고*/
+.logo{
+  display: flex;
+  
 }
-
-
-input:focus{
-  outline:none; /*인풋을 클릭했을 때 생기는 테두리 없앰*/
-}
-
-input::placeholder {
- font-family: 'HakgyoansimWoojuR';
- font-size: 20px;
- 
-}
-
-.Search input {
-  border: none;
-  background: transparent;
+.search{
   width: 100%;
-  position: absolute;
-  bottom: 20%;
-  height: 50%;
-}
-
-.Search button{
+  height: 20%;
   position: relative;
-  left: 90%;
-  bottom: -30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.search form{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.search form input{
+  width: 75%;
+  height: 90%;
+  padding-left: 15px;
+  border: 2px solid #FDAF96;
+  border-radius: 20px;
+  font-size: 0.6em;
+}
+.search form .btn{
+  width: 20%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.btn button{
+  background-color: #FDAF96;
   border: none;
-  background: transparent;
+  border-radius: 3px;
+  width: 45%;
+  height: 100%;
+  position: relative;
   cursor: pointer;
 }
-
-/*'나의 즐겨찾기' 텍스트*/
-.text{
-  position: relative;
-  top: 30%;
-  left: 11%;
-  font-size: 200%;
-}
-
-/* 즐겨찾기한 상품 리스트 */
-.box {
-  position: relative;
-  width: 80%;
-  top: 33%;
-  left: 8%;
+.btn button:nth-of-type(2){
   background-color: #FFF1DB;
-  border-radius: 20px;
-  padding: 3%;
-  /* 최소 높이 설정 */
-  /* overflow: scroll;*/
-  min-height: 100%;
 }
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row; /* 가로 방향으로 나열 */
-  justify-content: space-between; /* 요소들 사이에 일정한 간격 설정 */
-  align-items: center; /* 가운데 정렬 */
-}
-
-li {
-  font-size: 160%;
-  text-align: center;
-  margin-bottom: 10%; /* 첫 번째 행과 두 번째 행의 간격을 조절 */
-}
-
-/*총액*/
-.price {
-  position: relative;
+.btn button img{
+  width: 70%;
+  max-width: 30px;
+  object-fit: cover;
+  position: absolute;
   top: 50%;
-  left: -7%;
-  display: flex;
-  justify-content: right;
-  align-items: end;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.price span{
-  font-size: 200%;
+/*메인부분*/
+.basketdiv {
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+    float: left;
+    font-size: 0.9375em;
+    margin-bottom: 20px;
+    }
+    .basketdiv .row.head {
+        border-bottom: 2px solid #888;
+        box-sizing: border-box;
+        background-color: #f4f4f4;
+        font-weight: 500;
+    }
+    .basketdiv .data {
+        border-bottom: 1px dashed #888;
+        box-sizing: border-box;
+        cursor: pointer;
+        float: left;
+        width: 100%;
+    }
+    .basketdiv .data .empty{
+        text-align: center;
+        padding: 12px 0;
+    }
+    .basketdiv .row.head .subdiv {
+        background-color: #f4f4f4;
+    }
+    .basketdiv .row > .subdiv {
+        display: block;
+        float: left;
+    }
+    .basketdiv .row > .subdiv:nth-child(1) {
+        width: 50%;
+    }
+    .basketdiv .row > .subdiv:nth-child(2) {
+        width: 40%;
+    }
+    .basketdiv .row > .subdiv:nth-child(3) {
+        width: 10%;
+    }
+    .basketdiv2 .row > .subdiv:nth-child(1) {
+        width: 60%;
+    }
+    .basketdiv2 .row > .subdiv:nth-child(2) {
+        width: 40%;
+    }
+    .basketdiv .row > div > div {
+        display: block;
+        float: left;
+        text-align: center;
+        margin: 0;
+        padding: 12px 0;
+    }
+    .basketdiv .row.data > div > div {
+        height: 60px;
+        line-height: 60px;
+    }
+        .basketdiv .data .num .updown {
+            color: #0075ff;
+            font-size: 2em;
+            letter-spacing: -5px;
+        }
+        .basketdiv .check {
+            width: 10%;
+        }
+    .basketdiv .check input[type=checkbox] {
+        transform: scale(1.5);
+    }
+    .basketdiv .img{
+        width: 20%;
+    }
+    .basketdiv .pname{
+        width: 70%;
+    }
+    .basketdiv2 .pname {
+        width: 80%;
+    }
+    .basketdiv .basketprice {
+        width: 33%;
+    }
+    .basketdiv .num {
+        width: 33%;
+      min-width: 105px;
+    }
+    .basketdiv .sum {
+        width: 34%;
+      max-width: 80px;
+        color: #0000aa;
+    }
+    .basketdiv .point {
+        width: 50%;
+    }
+    .basketdiv2 .basketprice {
+        width: 25%;
+    }
+
+    .basketdiv2 .num {
+        width: 25%;
+    }
+
+    .basketdiv2 .sum {
+        width: 25%;
+        color: #0000aa;
+    }
+
+    .basketdiv2 .point {
+        width: 25%;
+    }
+    .basketdiv .basketcmd{
+        width: 100%;
+    }
+    .basketdiv .data .pname {
+        text-align: left !important;
+      line-height: 1.2 !important;
+    }
+    .basketdiv .data .price, .basketdiv .data .sum, .basketdiv .data .point {
+        text-align: right;
+    }
+    .baseform > tbody > tr > td:first-child {
+        width: 100px;
+    }
+
+.buttongroup {
+    padding: 11px 0;
+    margin: 50px 0;
+}
+.narrowbuttongroup{
+    margin: 15px 0;
+}
+    .buttongroup.center {
+        text-align: center;
+    }
+    .buttongroup input[type=text], .buttongroup input[type=password] {
+        height: 30px;
+    }
+    .buttongroup button, .buttongroup a {
+        margin-right: 5px;
+    }
+        .buttongroup button:last-child, .buttongroup a:last-child {
+            margin-right: 0;
+        }
+
+    .abutton, .abutton:link, .abutton:visited, .abutton:active, input[type=button] {
+        background-color: #383838;
+        border: 1px solid #888888;
+        color: #ffffff;
+        cursor: pointer;
+        letter-spacing: -1px;
+        padding: 3px 5px;
+        margin: 2px 3px;
+        width: auto;
+        word-break: keep-all;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9375em;
+    }
+
+.abutton-alt {
+    background-color: #d3e2c6;
 }
 
-/*하단공백..인데 적용이안됨
-.footer{
-  height: 100px;
+.red {
+    color:#b00;
 }
-
-/*모바일 미디어쿼리
-@media screen and (max-width: 767px) {
-  .logo {
-    position: absolute;
-    left: 5%;
-    width: 35%;
-    top: 3%;
-    min-width: 100px;
-    height: auto;
-  }
-
-}*/
-
-/*태블릿 미디어쿼리*/
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+.blue {
+  color: #0075ff;
 }
-
-/*데스크탑 미디어쿼리*/
-@media screen and (min-width: 1024px) {
+.basketrowcmd, .sumcount, .summoney{
+  text-align: right;
+  margin-bottom: 10px;
+}
+.sumcount, .summoney{
+  font-size: 1.25em;
+    font-weight: bold;
+}
+.buttongroup{
+  text-align: center;
+}
+.buttongroup a{
+  text-decoration: none;
+}
+.cmd a, .cmd span {
+    padding: 12px 30px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #000;
+    background-color: #f4f4f4;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+}
+.cmd.small a, .cmd.small span {
+    padding: 6px 20px;
+    font-size: 0.8125em;
 }

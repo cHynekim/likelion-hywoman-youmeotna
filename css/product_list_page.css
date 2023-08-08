@@ -14,61 +14,73 @@ html,body {
 }
 
 /*상단 검색바, 로고*/
-.Search{
-  background-color: #FFF1DB;
-  position: absolute;
-  left: 45%;
-  bottom: 84%;
-  border-radius: 20px;
-  width: 50%;
-  height: 9%;
-}
-
-.logo {
-  position: absolute;
-  left: 6%;
+.logo{
   width: 20%;
-  top: 4%;
+  position: relative;
+  left: 40%;
 }
-
-input:focus{
-  outline:none; /*인풋을 클릭했을 때 생기는 테두리 없앰*/
-}
-
-input::placeholder {
- font-family: 'HakgyoansimWoojuR';
- font-size: 20px;
-}
-
-.Search input {
-  border: none;
-  background: transparent;
+.search{
   width: 100%;
-  position: absolute;
-  bottom: 20%;
-  height: 50%;
+  height: 20%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-.Search button{
-  position: absolute;
-  right: 5%;
-  bottom: 28%;
+.search form{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.search form input{
+  width: 75%;
+  height: 90%;
+  padding-left: 15px;
+  border: 2px solid #FDAF96;
+  border-radius: 20px;
+  font-size: 0.6em;
+}
+.search form .btn{
+  width: 20%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.btn button{
+  background-color: #FDAF96;
   border: none;
-  background: transparent;
+  border-radius: 3px;
+  width: 45%;
+  height: 100%;
+  position: relative;
   cursor: pointer;
 }
-
+.btn button:nth-of-type(2){
+  background-color: #FFF1DB;
+}
+.btn button img{
+  width: 70%;
+  max-width: 30px;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 /*카테고리 버튼 3개*/
 
 .btn_container{
   display: flex;
   position: relative;
-  justify-content: center;
+  
 }
-
 button{
   background: transparent;
+  background-color: #FFF1DB;
   border: none;
   cursor: pointer;
   font-family: 'HakgyoansimWoojuR';
@@ -79,11 +91,11 @@ button{
   border: #e2dcd6 solid 3px;
   border-radius: 20px;
   padding: 3%;
-  position: relative;
-  left: -13%;
-  top: 180px; /*  %  */
+  /*position: relative;*/
   background-color: #FFF1DB;
   transition: background-color 0.3s ease; /* 호버 부드럽게 설정 */
+  position: relative;
+  left: 20%;
 }
 
 .fastest{
@@ -91,12 +103,12 @@ button{
   border: #e2dcd6 solid 3px;
   border-radius: 20px;
   padding: 3%;
-  position: relative;
-  left: 0%;
-
-  top: 180px;
+  /*position: relative;*/
   background-color: #FFF1DB;
   transition: background-color 0.3s ease;  /*호버 부드럽게 설정 */
+  position: relative;
+  left: 32%;
+
 }
 
 .cheap{
@@ -104,20 +116,14 @@ button{
   border: #e2dcd6 solid 3px;
   border-radius: 20px;
   padding: 3%;
-  position: relative;
-  left: 13%;
-
-  top: 180px;
+  /*position: relative;*/
   background-color: #FFF1DB;
   transition: background-color 0.3s ease; /* 호버 부드럽게 설정 */
+  position: relative;
+  left: 44%;
+
 }
 
-/* 호버 효과 스타일 */
-.popularity:hover,
-.fastest:hover,
-.cheap:hover {
-  background-color: #FFDEDE; /* 호버 시 배경색 변경 */
-}
 
 /*상품 이미지, 소개*/
 .product_container{
@@ -129,7 +135,7 @@ button{
 .product_1{
   background-color: #FFF1DB;
   position: relative;
-  margin: 25% 14% 2% 14%;
+  margin: 8% 14% 2% 14%;
   min-height: 150px;
 }
 
@@ -157,9 +163,7 @@ button{
 .star {
   position: relative;
   width: 4%;
-  left: -69%;
-  cursor: pointer;
-  
+  left: -60%;
 }
 
 /* 하단 버튼 두개 */
@@ -168,6 +172,7 @@ button{
   display: flex;
   justify-content: center;
 }
+
 .toBookmark_btn{
   position: relative;
   top: 185%;
@@ -177,7 +182,6 @@ button{
   padding: 4%;
   font-size: 130%;
   background-color:#FFF1DB;
-  transition: background-color 0.3s ease; /* 호버 부드럽게 설정 */
 }
 
 .toCart_btn{
@@ -189,10 +193,5 @@ button{
   padding: 4%;
   font-size: 130%;
   background-color:#FFF1DB;
-  transition: background-color 0.3s ease; /* 호버 부드럽게 설정 */
 }
 
-.toBookmark_btn:hover,
-.toCart_btn:hover {
-  background-color: #FFDEDE; /* 호버 시 배경색 변경 */
-}
