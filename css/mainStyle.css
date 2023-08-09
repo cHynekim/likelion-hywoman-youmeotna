@@ -78,7 +78,7 @@ main{
 .search form input{
     width: 75%;
     height: 90%;
-    padding-left: 15px;
+    padding: 0 15px;
     border: 2px solid #FDAF96;
     border-radius: 20px;
     font-size: 0.6em;
@@ -138,7 +138,6 @@ main{
     height: 80%;
     max-height: 351px;
     position: relative;
-    
 }
 /*main, recommand title*/
 .recommand>span{
@@ -163,7 +162,7 @@ main{
 /*main, list buttons*/
 .product .nextBtn{
     width: 99%;
-    min-width: 445px;
+    min-width: 297px;
     height: 10%;
     position: absolute;
     top: 50%;
@@ -175,7 +174,7 @@ main{
     z-index: 1;
 }
 .product .nextBtn div{
-    width: 6%;
+    width: 8%;
     height: 100%;
     cursor: pointer;
 }
@@ -211,13 +210,17 @@ main{
     margin-right: 50px;
     width: 200px;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     transition: 0.4s;
 }
 .list li:hover{
     transform: scale(104%);
+}
+.list li a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .list li img{
     width: 100%;
@@ -249,9 +252,13 @@ footer>div{
     flex-direction: row;
     justify-content: space-between;
 }
-footer>div button{
+footer>div a{
     width: 48%;
     height: 80%;
+}
+footer>div button{
+    width: 100%;
+    height: 100%;
     border: none;
     border-radius: 15px;
     font-size: 0.9em;
@@ -277,10 +284,10 @@ footer .botMenu button{
 footer .botMenu button:active{
     background-color: #f1d728;
 }
-footer .botMenu button:nth-of-type(2){
+footer .botMenu a:nth-of-type(2) button{
     background-color: #FDAF96;
 }
-footer .botMenu button:nth-of-type(2):active{
+footer .botMenu a:nth-of-type(2) button:active{
     background-color: #ed987c;
 }
 /*footer end*/
@@ -305,6 +312,53 @@ footer .botMenu button:nth-of-type(2):active{
         width: 200px;
         position: relative;
         overflow: hidden;
+    }
+}
+@media screen and (max-width : 514px) and (min-width : 0px){
+    .search form input{
+        width: 65%;
+        height: 90%;
+        padding-left: 15px;
+        border: 2px solid #FDAF96;
+        border-radius: 20px;
+        font-size: 0.6em;
+    }
+    /*main, search bar, buttons*/
+    .search form .btn{
+        width: 30%;
+        height: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .bubble{
+        width: 70%;
+        height: 50%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        text-align: right;
+        transition: 1s;
+    }
+    .recommand>span{
+        width: 40%;
+        height: 10%;
+        display: block;
+        position: absolute;
+        top: 5%;
+        font-size: 0.9em;
+        font-weight: bold;
+    }
+    .product .slide{
+        width: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+    .product .nextBtn div{
+        width: 8%;
+    }
+    footer>div button{
+        font-size: 0.7em;
     }
 }
 /*media query end*/
