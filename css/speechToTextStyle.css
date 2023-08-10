@@ -1,0 +1,100 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'HakgyoansimWoojuR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'HakgyoansimWoojuR';
+    font-size: 30px;
+    color: #2A343D;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+a{
+    text-decoration: none;
+    color: #2A343D;
+}
+li{
+    list-style: none;
+}
+#modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    z-index: 2;
+}
+.sttBox{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+}
+.info{
+    width: 100%;
+    height: 30%;
+    text-align: center;
+    font-size: 0.8em;
+    line-height: 120px;
+}
+.status{
+    width: 15%;
+    height: 15%;
+    background-color: crimson;
+    border-radius: 50%;
+    transition: 0.3s;
+    position: absolute;
+    top: 33%;
+    left: 42.5%;
+    /* transform: translate(-50%, 0); */
+}
+.output{
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    bottom: 20%;
+    text-align: center;
+    font-weight: bold;
+    line-height: 120px;
+}
+.sttBtn{
+    width: 100%;
+    height: 15%;
+    position: absolute;
+    bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.sttBtn button{
+    width: 40%;
+    height: 95%;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    font-size: 0.9em;
+}
+.sttBtn button:hover{
+    filter: drop-shadow(0px 1px 2px #aaa);
+}
+.againBtn{
+    background-color: #efe5e2;
+}
+.againBtn:active{
+    background-color: #e0d2cd;
+}
+.submitBtn{
+    background-color: #FDAF96;
+}
+.submitBtn:active{
+    background-color: #ed987c;
+}
