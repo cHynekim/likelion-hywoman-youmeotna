@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니</title>
+    <link rel="stylesheet" href="../css/cart.css">
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/d1a3d01a0c.js" crossorigin="anonymous"></script>
+    <header class="header">
+        <img src="../image/곰살마트_페이지로고.png" alt="" id="img">
+        
+        <div class="search">
+            <input type="text" placeholder="검색어를 입력하세요">
+            <button id="search-btn"> 검색</button>
+        </div>
+
+    </header>
+
+    <form class="orderForm" id="orderForm">
+        <p>나의 장바구니</p>
+
+        <div class="cart" id="cart">
+
+            <div class="row-head"> <!-- 장바구니 헤더 -->
+                <div class="pname">상품명</div>
+
+                <div class="price">가격</div>
+
+                <div class="pnum">수량</div>
+
+                <div class="psum">합계</div>
+
+                <div class="delete">삭제</div>
+            </div>
+
+            <div class="row-data"> <!-- 장바구니 상품 목록 -->
+                <div class="pname"><span>오렌지 주스</span></div>
+
+                <div class="price">
+                    <input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000">20,000원
+                </div>
+
+                <div class="num">
+
+                    <!-- "장바구니 수량 변경" -->
+        
+                    <div class="updown">
+        
+                        <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="2">
+        
+                        <span><i class="fa-solid fa-arrow-up"></i></i></span>
+        
+                        <span><i class="fa-solid fa-arrow-up fa-rotate-180"></i></span>
+        
+                    </div>
+        
+                </div>
+        
+                <!-- "장바구니 상품 합계" -->
+        
+                <div class="sum">40,000원</div>
+        
+                <div class="basketcmd"><i class="fa-solid fa-xmark"></i></div>
+        
+            </div>
+
+            <div class="row-data"> <!-- 장바구니 상품 목록 -->
+                <div class="pname"><span>오렌지 주스</span></div>
+
+                <div class="price">
+                    <input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000">20,000원
+                </div>
+
+                <div class="num">
+
+                    <!-- "장바구니 수량 변경" -->
+        
+                    <div class="updown">
+        
+                        <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="2">
+        
+                        <span><i class="fa-solid fa-arrow-up"></i></i></span>
+        
+                        <span><i class="fa-solid fa-arrow-up fa-rotate-180"></i></span>
+        
+                    </div>
+        
+                </div>
+        
+                <!-- "장바구니 상품 합계" -->
+        
+                <div class="sum">40,000원</div>
+        
+                <div class="basketcmd"><i class="fa-solid fa-xmark"></i></div>
+        
+            </div>
+
+            <div class="row-data"> <!-- 장바구니 상품 목록 -->
+                <div class="pname"><span>오렌지 주스</span></div>
+
+                <div class="price">
+                    <input type="hidden" name="p_price" id="p_price1" class="p_price" value="20000">20,000원
+                </div>
+
+                <div class="num">
+
+                    <!-- "장바구니 수량 변경" -->
+        
+                    <div class="updown">
+        
+                        <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="2">
+        
+                        <span><i class="fa-solid fa-arrow-up"></i></i></span>
+        
+                        <span><i class="fa-solid fa-arrow-up fa-rotate-180"></i></span>
+        
+                    </div>
+        
+                </div>
+        
+                <!-- "장바구니 상품 합계" -->
+        
+                <div class="sum">40,000원</div>
+        
+                <div class="basketcmd"><i class="fa-solid fa-xmark"></i></div>
+        
+            </div>
+
+        </div>
+
+        <div class="sumcount" id="sum_p_num">상품갯수: 4개</div>
+
+        <div class="summoney" id="sum_p_price">합계금액: 74,200원</div>
+    
+    
+    
+        <div class="orderBtn">
+    
+            <a href="#">결제하기</a>
+    
+        </div>
+
+
+
+    </form>
+
+
+</body>
+</html>

@@ -5,15 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/mainStyle.css" type="text/css">
+    <link href="../css/schStyle.css" rel="stylesheet" type="text/css">
+    <link href="../css/speechToTextStyle.css" rel="stylesheet" type="text/css">
+    <script src="../js/speechToTextScript.js" defer type="text/javascript"></script>
+    <script src="../js/schScript.js" defer type="text/javascript"></script>
     <script src="../js/mainScript.js" defer type="text/javascript"></script>
 </head>
 <body>
+    <!--음성 인식 모달창-->
+    <div id="modal" class="hide">
+        <div class="sttBox">
+            <div class="info">마이크에 대고 찾으려는 상품을 말해보세요!</div>
+            <div class="status"></div>
+            <div class="output"></div>
+            <div class="sttBtn">
+                <button type="button" class="againBtn">다시 말하기</button>
+                <button type="submit" class="submitBtn">완료</button>
+            </div>
+        </div>
+    </div>
+    <!--음성 인식 모달창 끝-->
+    <div class="sch_focus hide">
+        <div class="header_search">
+            <form>
+                <input type="text" placeholder="검색할 상품을 입력해주세요"> <!--입력-->
+                <div class="focus_btn">
+                    <button type="submit"> <!--확인btn-->
+                        <img src="../image/searchSubmit.png">
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="history">
+            <ul>
+                <span>최근 검색어</span>
+                <li>
+                    <a href="#">product1</a> <!--검색한 키워드-->
+                    <span class="date">08.08</span> <!--백엔드 측에서 해당 키워드 검색 날짜 넘겨 받아서 입력-->
+                </li>
+                <li>
+                    <a href="#">product2</a> <!--검색한 키워드-->
+                    <span class="date">08.08</span> <!--백엔드 측에서 해당 키워드 검색 날짜 넘겨 받아서 입력-->
+                </li>
+                <li>
+                    <a href="#"></a> <!--검색한 키워드-->
+                    <span class="date"></span> <!--백엔드 측에서 해당 키워드 검색 날짜 넘겨 받아서 입력-->
+                </li>
+                <li>
+                    <a href="#"></a> <!--검색한 키워드-->
+                    <span class="date"></span> <!--백엔드 측에서 해당 키워드 검색 날짜 넘겨 받아서 입력-->
+                </li>
+                <li>
+                    <a href="#"></a> <!--검색한 키워드-->
+                    <span class="date"></span> <!--백엔드 측에서 해당 키워드 검색 날짜 넘겨 받아서 입력-->
+                </li>
+            </ul>
+            <div class="none_history hide">
+                최근 검색 기록이 없습니다.
+            </div>
+        </div>
+        <div class="footer">
+            <ul>
+                <li class="remove_history"><a href="#">검색 기록 삭제</a></li>
+                <li class="remove_sch_focus"><a href="#">닫기</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--검색창 끝-->
     <div id="wrap">
         <header> <!--헤더, 로고-->
             <a href="#">
                 <img src="../image/logo.png" alt="logo">
             </a>
         </header>
+        <!--검색창 누르면 생성-->
         <main> <!--메인-->
             <div class="search"> <!--검색창-->
                 <form>
@@ -22,51 +87,65 @@
                         <button type="submit"> <!--확인btn-->
                             <img src="../image/searchSubmit.png">
                         </button>
-                        <button type="button">
+                        <button type="button" class="sttTrigger">
                             <img src="../image/mic.png" alt="mic">
                         </button>
                     </div>
                 </form>
-                <div class="bubble">
+                <div class="bubble hid">
                     <img src="../image/bubble.png">
-                    <span>버튼을 눌러 원하시는 상품을 말해주세요!</span>
                 </div>
-            </div>
+            </div>        
             <div class="recommand">
                 <span>추천 상품</span>
                 <div class="product">
                     <div class="nextBtn">
-                        <div><img src="../image/left.png"></div>
-                        <div><img src="../image/right.png"></div>
-                    </div>                    
-                    <ul class="list">
-                        <li>
-                            <img src="https://hssci.co.kr/web/product/small/sciencestarshop_3033.jpg"> <!--이미지-->
-                            <span class="name">product1</span>
-                            <span class="price">1,000원</span>
-                        </li>
-                        <li>
-                            <img src="https://thumbnail.10x10.co.kr/webimage/image/basic600/347/B003472286.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false"> <!--이미지-->
-                            <span class="name">product2</span>
-                            <span class="price">1,000원</span>
-                        </li>
-                        <li>
-                            <img src="https://contents.lotteon.com/itemimage/_v180130/LO/18/05/69/23/29/_1/80/56/92/33/0/LO1805692329_1805692330_1.jpg/dims/optimize/dims/resizemc/400x400"> <!--이미지-->
-                            <span class="name">product3</span>
-                            <span class="price">1,000원</span>
-                        </li>
-                    </ul>
+                        <div class="left"><img src="../image/left.png"></div>
+                        <div class="right"><img src="../image/right.png"></div>
+                    </div> 
+                    <div class="slide">
+                        <ul class="list">
+                            <li>
+                                <a href="#">
+                                    <img src="https://thumbnail.10x10.co.kr/webimage/image/basic600/347/B003472286.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false"> <!--이미지-->
+                                    <span class="name">product1</span>
+                                    <span class="price">1,000원</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="https://thumbnail.10x10.co.kr/webimage/image/basic600/347/B003472286.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false"> <!--이미지-->
+                                    <span class="name">product2</span>
+                                    <span class="price">1,000원</span>    
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="https://contents.lotteon.com/itemimage/_v180130/LO/18/05/69/23/29/_1/80/56/92/33/0/LO1805692329_1805692330_1.jpg/dims/optimize/dims/resizemc/400x400"> <!--이미지-->
+                                    <span class="name">product3</span>
+                                    <span class="price">1,000원</span>    
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="https://contents.lotteon.com/itemimage/_v180130/LO/18/05/69/23/29/_1/80/56/92/33/0/LO1805692329_1805692330_1.jpg/dims/optimize/dims/resizemc/400x400"> <!--이미지-->
+                                    <span class="name">product4</span>
+                                    <span class="price">1,000원</span>    
+                                </a>
+                            </li>
+                        </ul>
+                    </div>                   
                 </div>
             </div>
         </main>
         <footer>
             <div class="topMenu">
-                <div>배송 조회하기</div>
-                <div>내 정보 확인하기</div>
+                <a href="#"><button>배송 조회하기</button></a>
+                <a href="#"><button>내 정보 확인하기</button></a>
             </div>
             <div class="botMenu">
-                <div>즐겨찾기 가기</div>
-                <div>장바구니 가기</div>
+                <a href="#"><button>즐겨찾기 가기</button></a>
+                <a href="#"><button>장바구니 가기</button></a>
             </div>
         </footer>
     </div>

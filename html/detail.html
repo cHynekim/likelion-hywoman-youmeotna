@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세페이지</title>
+    <link rel="stylesheet" href="../css/detail.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="glass">
+            <button class="plus" id="plus">+</button>
+            <button class="minus" id="minus">-</button>
+        </div>
+
+        <p>싱싱한 당근</p>
+
+        <a href="#" class="searchBtn"><img src="../image/searchSubmit.png" alt=""></a>
+        
+    </header>
+    <!--상품 이미지 -->
+    <div class="m-img">
+        <img src="../image/carrots.jpg" alt="">
+    </div>
+    <!-- 즐겨찾기 및 가격 정보 -->
+    <div class="middle">
+        <button class="star" id="star">즐겨찾기</button>
+
+        <div class="middle-info">
+            <p>우리 집까지 2일 소요</p>
+            <div class="middle-info2">
+                <p>0%</p>
+                <div class="basketprice">
+                    <input type="hidden" class="p_price" name="p_price" id="p_price1" value="25000">
+                    25000원
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- 상세설명 및 별점 -->
+    <div class="tab_menu">
+        <ul class="tab">
+            <li class="tab_item active">상품설명</li>
+            <li class="tab_item">후기 및 별점</li>
+        </ul>
+        <div class="tab_inner_wrap">
+            <div class="tab_inner active">세상에서 가장 신선한 당근입니다</div>
+            <div class="tab_inner">
+                <div class="starPoint">
+                    <p>평점</p>
+                    <img src="../image/Star 2.png" alt="">
+                    <p class="" type="num">7.8</p>
+                </div>
+
+                <div class="comment">
+                    <img src="../image/people_img.png" alt="" class="people">
+                    <p>당근이 아주 신선하고 좋아요</p>
+                    <img src="../image/Group 8756.png" alt="" class="stars">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- 수량설정 및 장바구니,바로결제버튼 -->
+    <form class="num"> 
+        <p>수량</p>
+
+        <div class="updown">
+            <img src="../image/minus_btn.png" alt="">
+            <input type="text" name="p_num1" id="p_num1" size="2" maxlength="4" class="p_num" value="2">
+            <!-- input.value로 가져갈 수 있음 -->
+            <img src="../image/plus_btn.png" alt="">
+        </div>
+    </form>
+
+    <div class="bottom">
+        <div class="cartBtn">
+            <button>
+                <p class="font">장바구니 담기</p>
+            </button>
+        </div>
+
+        <div class="buyBtn">
+            <button>
+                <p class="font">바로 결제하기</p>
+            </button>
+        </div>
+
+    </div>
+
+    <script src="../js/detail.js"></script>
+
+</body>
+</html>

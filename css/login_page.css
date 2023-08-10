@@ -16,11 +16,7 @@ html,body {
   font-size:16px;
 }
 
-form{
-  width: 100%;
-  height: 100%;
-  font-size:16px;
-}
+/*로고*/
 
 .logo {
   display: flex;
@@ -29,6 +25,15 @@ form{
   position: relative;
   top: 10%;
 } 
+
+/*입력폼*/
+
+form{
+  width: 100%;
+  height: 100%;
+  font-size:16px;
+  position: relative;
+}
 
 .name, .pw  {
   border-bottom: #2A343D solid 1px;
@@ -50,30 +55,33 @@ input{
 }
 
 .name{
-  position: relative;
+  position: absolute;
   top: 23%;
   width: 50%;
   left: 25.5%;
 }
 
 .pw{
-  position: relative;
+  position: absolute;
   top: 33%;
   width: 50%;
   left: 25.5%;
 }
 
+/*비밀번호 변경*/
+
 .change_pw {
-  position: relative;
-  top: 36%;
+  position: absolute;
+  top: 38%;
   left: 46.5%;
   text-decoration: none;
   font-size: 120%;
 }
 
-/*메인페이지 주소를 넣으면 a:visited 태그가 활성화*/
+/*하단 버튼*/
+
 a:visited{
-  color: #2A343D;
+  color: #2A343D; /*메인페이지 주소를 넣으면 a:visited 태그가 활성화*/
 }
 
 a:active{
@@ -102,7 +110,7 @@ button:hover{
 }
 
 .start_btn{
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,18 +120,18 @@ button:hover{
 }
 
 .join_btn{
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 65%;
+  top: 70%;
   left: 40%;
   font-size: 160%;
 }
 
 .first {
-  position: relative;
-  top: 64%;
+  position: absolute;
+  top: 66%;
   left: 47%;
   font-size: 110%;
 }

@@ -9,98 +9,163 @@
 
 html {
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 20px;
-    padding-bottom: 20px
+
+    /* padding-top: 20px;
+    padding-bottom: 20px */
     
 }
 body .signUp{
-    width: auto;
-    font-size: 1.2rem;
-    /* padding: 30px; */
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+
 }
 
-.logo >img{
-    width: 300px;
+.logo {
+    width: 100%;
     height: auto;
     object-fit: cover;
-    display: block;
-    margin: 40px auto ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    top: 3%;
+    /* margin: 40px auto ; */
     /* background-color: rgb(243, 228, 208); */
+}
+.logo img{
+    width: 30%;
 }
 
 body {
-    /* box-sizing: border-box;
-    width: 100%;
-    height: auto; */
-	font-family: 'HakgyoansimWoojuR';
+    box-sizing: border-box;
+    width: 50%;
+    height: 100%;
+   font-family: 'HakgyoansimWoojuR';
     color : #2A343D;
     background-color: rgb(255, 248, 248);
 }
 
 #mainTitle{
-    font-size: 3rem;
-    margin: 30px 0;
+    font-size: 2rem;
     line-height: 1.5em;
     position: relative;
     /* background-color: antiquewhite; */
-    padding: 2px;
+    top: 8%;
+    font-weight: 1000;
+    color: #2A343D;
+
+    width: 100%;
+    height: 10%;
+}
+
+.center{
+    position: relative;
+    top: 10%;
+
+    width: 100%;
+    height: 100%;
+
+    /* background-color: aqua; */
+
 }
 
 #title{
-    width: 70px;
-    height: 20px;
-    /* background-color: rgb(234, 223, 255); */
+    width: 30%;
+    height: 25%;
+
     border: 1px solid rgb(255, 194, 173);
-    border-radius: 4px;
-    text-align: center; 
-    padding: 5px;
-    vertical-align: baseline;
-    align-items: center;  
-}
+    border-radius: 2px;
 
-
-#name,#birth,#phoneNum,#id,#password,#agree{
-    margin: 10px 0;
-
-}
-.name, .birth, .phoneNum, .id, .password, .agree{
-    padding: 20px 0;
-}
-
-input:not(#birth){
-    width: 100%;
-    padding: 20px;
-    border-style: none;
-}
+    align-items: center; 
     
-#birth{
-    padding: 20px ;
-    width: auto;
-    border-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-weight: 600;
+}
+/* 인풋부모 */
+.name, .birth, .phoneNum, .id, .password, .agree , .passwordCheck{
+    width: 100%;
+    height: 20%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+/* 인풋박스 */
+#name,#phoneNum,#id,#password,#agree, #passwordCheck{
+
+    width: 100%;
+    height: 30%;
+    position: relative;
+    top: 10%;
+} 
+/* 생년월일 인풋 */
+.birthInput{
+    display: flex;
+    flex-direction: row;
+    
+    width: 100%;
+    height: 30%;
+
 }
 
-.agree{
+.birthIn{
     width: 100%;
-    height: 60px;
+
+}
+
+input{
+    /* border-radius: 8px; */
+    border-style: none;
+    border-bottom: 1px solid rgb(255, 180, 172);
+}
+
+#agree{
+    width: 100%;
+    height: 8%;
+
     border-radius: 8px;
-    display: inline-block;
     background-color: #FDAF96;
     color:#2A343D ;
-    box-sizing: border-box; /*아웃라인을 기준으로 박스 사이징*/
+
     border-style: none;
     font-weight: 1000;
     font-family: 'HakgyoansimWoojuR';
     font-size: 1.3rem;
     cursor: pointer;
-    line-height: 20px;
-    margin: 0;
-    padding: 10px 16px;
+
     position: relative;
-    left: 13px;
+    top: 1%;
+}
+#agree:active{
+    background-color: rgb(225, 223, 223);
+}
+
+#agree p{
+    width: 100%;
+    height: auto;
     text-align: center;
-    vertical-align: baseline; /*글자 라인 맞춰서*/
+    font-weight: bold;
+    font-size: 1rem;
+}
+.error{
+    font-size: 1rem;
+    height: 35px;
+    color:red;
+    font-weight: 700;
+    /* background-color: #FDAF96; */
+    position: relative;
+    top: 20px;
+
+    opacity: 0;
 }
 
 /* 스마트폰 미디어쿼리 */
@@ -121,5 +186,4 @@ input:not(#birth){
     width: 100%;
     border-style: none;
 }
-
 }
