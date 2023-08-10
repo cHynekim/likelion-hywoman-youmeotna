@@ -1,279 +1,363 @@
-*{
-    margin: 0;
-    padding: 0;
-}
 @font-face {
     font-family: 'HakgyoansimWoojuR';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-    
 }
-html{
-    width: 100%;
-    height: 100%;
-}
-body{
-    width: 100%;
-    height: 100%;
-
+/*전체 태그들의 마진, 패딩 초기화 및 글꼴 설정*/
+* {
+    margin: 0;
+    padding: 0;
     font-family: 'HakgyoansimWoojuR';
-    font-size: 1.2rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    background-color: rgb(255, 255, 255);
+    font-size: 22px;
+    color: #2A343D;
 }
 
-.header{
-    width: 100%;
-    height: 10%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    /* background-color: aquamarine; */
-
+html,body {
+  
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
 }
 
-img{
-    width: 100px;
-
-    position: relative;
-    top: 10px;
-    left: 5px;
-
+/*검색창,로고*/
+.logo{
+  display: flex;
 }
-
 .search{
-    /* background-color: blue; */
-
-    width: 700px;
-    height: 40px;
-
-    position: relative;
-    left: 2%;
-    top: 10px;
+  width: 100%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.search form{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.search form input{
+  width: 75%;
+  height: 90%;
+  padding-left: 15px;
+  border: 2px solid #FDAF96;
+  border-radius: 20px;
+  font-size: 0.6em;
+}
+.search form .btn{
+  width: 20%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.btn button{
+  background-color: #FDAF96;
+  border: none;
+  border-radius: 3px;
+  width: 45%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+.btn button:nth-of-type(2){
+  background-color: #FFF1DB;
+}
+.btn button img{
+  width: 70%;
+  max-width: 30px;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.search input{
-    width: 80%;
-    height: 100%;
-    float: left;
-    border:none;
-    background-color: rgb(255, 244, 244);
-    border-radius: 8px 0 0 8px;
-}
-
-.search button{
-    width: 15%;
-    height: 100%;
-    border: none;
-    border-radius: 0 8px 8px 0;
-}
-
-
-
-.orderForm{
-    /* border: 2px solid red; */
-
-    width:70%;
-    height: 100%;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    position: relative;
-    top: 20px;
-
-
-
-}
-
-.orderForm p{
-    width: 100%;
-    height: 10%;
-    /* background-color: rgb(233, 175, 99); */
-
-    font-size: 2rem;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-weight: bold
-}
-
-.cart{
-    /* border: 1px solid blue; */
-
-    width: 100%;
-    height: auto;
-
-    position: relative;
-    top: 2%;
-
-    border-radius: 5px;
-
-}
-
-/* 상품 목록 이름 */
-.row-head{
-    /* border: 1px solid rgb(0, 255, 85); */
-    
-    display: flex;
-    /* flex-direction: row;
-    justify-content: space-around; */
-
-    width: 100%;
-    height: 40px;
-
-    align-items: center;
-
-    background-color: rgb(255, 239, 239);
-
-    position: relative;
-    
-    font-size: 1.1rem;
-}
-
-.pname{
-    position: absolute;
-    left: 5%;
-}
-
-.price{
-    position: absolute;
-    left: 30%;
-}
-.pnum{
-    position: absolute;
-    left: 50%;
-}
-
-.psum{
-    position: absolute;
-    left: 72%;
-}
-
-.delete{
-    position: absolute;
-    left: 91%;
-}
-/* 상품목록 */
-.row-data{
-
-    width: 100%;
-    height: 70px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-
-}   
-.p_num{
-    padding-left: 7px;
-}
-.num{
-    position: absolute;
-    left: 50%;
-}
-.sum{
-    position: absolute;
-    left: 72%;
-}
-
-.basketcmd{
-    position: absolute;
-    left: 92%;
-
-}
-.sumcount, .summoney{
-    width: 100%;
-    background-color: rgb(255, 239, 239);
-    height: 6%;
-
+/*메인부분*/
+.title{
     display: flex;
     flex-direction: row;
-    justify-content: right;
     align-items: center;
 
+    width: 100%;
+    height: 10%;
+    /* background-color: #025fc9; */
+
+}
+.title> p{
+    padding: 10px;
     font-size: 1.3rem;
-
-    position: relative;
-    top: 2%; 
-}
-
-
-.orderBtn{
-    width: 70%;
-    height: 8%;
-    background-color: #FDAF96;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-
-    position: relative;
-    top: 25px;
-
-    border-bottom-color: #FDAF96;
-
-}
-.orderBtn a{
-    color: #2A343D ;
-    text-decoration: none;
     font-weight: bold;
 }
+.orderForm{
+    width: 100%;
+    height: 100%;
+
+}
+.basketdiv {
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+    float: left;
+
+    margin-bottom: 20px;
+    }
+    .basketdiv .row.head {
+        box-sizing: border-box;
+
+    }
+    .basketdiv .data {
+        border-bottom: 1px solid hsl(0, 0%, 83%);
+        box-sizing: border-box;
+        cursor: pointer;
+        float: left;
+        width: 100%;
+    }
+    .basketdiv .data .empty{
+        text-align: center;
+        padding: 12px 0;
+    }
+    .basketdiv .row.head .subdiv {
+        background-color: #f4f4f4;
+    }
+    .basketdiv .row > .subdiv {
+        display: block;
+        float: left;
+    }
+    .basketdiv .row > .subdiv:nth-child(1) {
+        width: 40%;
+    }
+    .basketdiv .row > .subdiv:nth-child(2) {
+        width: 50%;
+    }
+    .basketdiv .row > .subdiv:nth-child(3) {
+        width: 10%;
+    }
+    .basketdiv .row > div > div {
+        display: block;
+        float: left;
+        text-align: center;
+        margin: 0;
+        padding: 12px 0;
+    }
+    .basketdiv .row.data > div > div {
+        height: 60px;
+        line-height: 60px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+        .basketdiv .data .num .updown {
+            color: #025fc9;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+        .basketdiv .check {
+            width: 20%;
+        }
+    .basketdiv .check input[type=checkbox] {
+        transform: scale(1.5);
+    }
+
+    .basketdiv .pname{
+        width: 70%;
+        /* background-color: #0075ff; */
+
+    }
+    .basketdiv .basketprice {
+        width: 30%;
+        /* background-color: #9f9fbe; */
+    }
+    .basketdiv .num {
+        width: 33%;
+      min-width: 105px;
+      /* background-color: #d3e2c6; */
+    }
+    .basketdiv .sum {
+        width: 30%;
+      max-width: 80px;
+        color: #025fc9;
+    }
+
+    .basketdiv .basketcmd{
+        width: 100%;
+    }
+    .basketdiv .data .pname {
+        text-align: left !important;
+      line-height: 1.2 !important;
+    }
+    .basketdiv .data .price, .basketdiv .data .sum, .basketdiv .data .point {
+        text-align: right;
+    }
+    .baseform > tbody > tr > td:first-child {
+        width: 100px;
+    }
+
+.buttongroup {
+    padding: 11px 0;
+    margin: 50px 0;
+}
+.narrowbuttongroup{
+    margin: 15px 0;
+}
+    .buttongroup.center {
+        text-align: center;
+    }
+    .buttongroup input[type=text], .buttongroup input[type=password] {
+        height: 30px;
+    }
+    .buttongroup button, .buttongroup a {
+        margin-right: 5px;
+    }
+        .buttongroup button:last-child, .buttongroup a:last-child {
+            margin-right: 0;
+        }
+
+    .abutton, .abutton:link, .abutton:visited, .abutton:active, input[type=button] {
+        background-color: #949494;
+        color: #ffffff;
+        cursor: pointer;
+        letter-spacing: -1px;
+        padding: 5px 10px; 
+        width: 50%;
+        height: 50%;
+        word-break: keep-all;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.7em;
+    }
+
+#del{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#d0d0d0 ;
+    color: #000;
+}
+
+.abutton-alt {
+    background-color: #d3dccc;
+}
+
+.red {
+    color:#b00;
+}
+.blue {
+  color: #025fc9;
+}
+.basketrowcmd, .sumcount, .summoney{
+  text-align: right;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.sumcount, .summoney{
+  font-size: 1.1em;
+    font-weight: bold;
+}
+.buttongroup{
+  text-align: center;
+}
+.buttongroup a{
+  text-decoration: none;
+}
+.cmd a, .cmd span {
+    padding: 12px 30px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #000;
+    background-color: #f4f4f4;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+}
+.cmd.small a, .cmd.small span {
+    padding: 6px 20px;
+    font-size: 0.8125em;
+}
+
+input{
+    padding-left: 5px;
+}
+.buy{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.buy > button{
+    width: 400px;
+    height: 65px;
+    margin-top: 10px;
+    border: 0.5px solid gray;
+    background-color: #FDAF96;
+    letter-spacing: 3px;
+    border-radius: 8px;
+}
+
 
 @media screen and (max-width:576px) {
     .orderForm{
-        /* border: 2px solid red; */
-    
+
         width:100%;
         height: 100%;
         
         display: flex;
         flex-direction: column;
+        justify-self: center;
         align-items: center;
 
+    }
+
+    .basketdiv .pname{
+        width: 60%;
+        /* background-color: #0075ff; */
 
     }
-    
-    .orderForm p{
+    .basketdiv .basketprice {
+        width: 30%;
+        /* background-color: #9f9fbe; */
+    }
+    .basketdiv .num {
+        width: 30%;
+      min-width: 105px;
+      /* background-color: #d3e2c6; */
+    }
+    .basketdiv .sum {
+        width: 30%;
+      max-width: 80px;
+        color: #025fc9;
+    }
+
+    .basketdiv .row > .subdiv:nth-child(1) {
+        width: 35%;
+    }
+
+
+    .basketdiv .row > .subdiv:nth-child(2) {
+        width: 55%;
+    }
+    .basketdiv .row > .subdiv:nth-child(3) {
+        width: 10%;
+    }
+}
+@media screen and (min-width:1200px){
+    html{
         width: 100%;
-        height: 10%;
-        /* background-color: rgb(233, 175, 99); */
-    
-        font-size: 2rem;
-    
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-    
-        font-weight: bold
     }
-
-    .orderBtn{
+    body{
         width: 70%;
-        height: 8%;
-        background-color: #FDAF96;
-    
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        border-radius: 8px;
-    
-        position: relative;
-        top: 40px;
-    
+
     }
-    
 }
