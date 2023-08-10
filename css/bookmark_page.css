@@ -15,7 +15,6 @@
 }
 
 html,body {
-  
   width: 100%;
   height: 100%;
   background-color: #fff;
@@ -23,7 +22,8 @@ html,body {
 
 /*검색창,로고*/
 .logo{
-  display: flex;
+  display: block;
+  margin: 0 auto;
   
 }
 .search{
@@ -79,7 +79,7 @@ html,body {
 }
 
 /*메인부분*/
-.basketdiv {
+    .basketdiv {
     width: 100%;
     border-top: 1px solid #e0e0e0;
     float: left;
@@ -104,7 +104,7 @@ html,body {
         padding: 12px 0;
     }
     .basketdiv .row.head .subdiv {
-        background-color: #f4f4f4;
+        background-color: #FFDEDE;
     }
     .basketdiv .row > .subdiv {
         display: block;
@@ -166,7 +166,7 @@ html,body {
     .basketdiv .sum {
         width: 34%;
       max-width: 80px;
-        color: #0000aa;
+        
     }
     .basketdiv .point {
         width: 50%;
@@ -181,7 +181,7 @@ html,body {
 
     .basketdiv2 .sum {
         width: 25%;
-        color: #0000aa;
+        
     }
 
     .basketdiv2 .point {
@@ -222,9 +222,9 @@ html,body {
         }
 
     .abutton, .abutton:link, .abutton:visited, .abutton:active, input[type=button] {
-        background-color: #383838;
+        background-color: #FFF1DB;
         border: 1px solid #888888;
-        color: #ffffff;
+        color: #2A343D;
         cursor: pointer;
         letter-spacing: -1px;
         padding: 3px 5px;
@@ -234,6 +234,7 @@ html,body {
         border-radius: 5px;
         text-decoration: none;
         font-size: 0.9375em;
+        
     }
 
 .abutton-alt {
@@ -243,8 +244,8 @@ html,body {
 .red {
     color:#b00;
 }
-.blue {
-  color: #0075ff;
+.blue {/*blue 클래스를 못찾았음.*/
+  color: #2A343D;
 }
 .basketrowcmd, .sumcount, .summoney{
   text-align: right;
