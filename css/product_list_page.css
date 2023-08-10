@@ -15,9 +15,8 @@ html,body {
 
 /*상단 검색바, 로고*/
 .logo{
-  width: 20%;
-  position: relative;
-  left: 40%;
+  display: block;
+    margin: 0 auto;
 }
 .search{
   width: 100%;
@@ -80,10 +79,9 @@ html,body {
 }
 button{
   background: transparent;
-  background-color: #FFF1DB;
+  background-color: #FFF;
   border: none;
   cursor: pointer;
-  font-family: 'HakgyoansimWoojuR';
 }
 
 .popularity{
@@ -108,7 +106,6 @@ button{
   transition: background-color 0.3s ease;  /*호버 부드럽게 설정 */
   position: relative;
   left: 32%;
-
 }
 
 .cheap{
@@ -121,7 +118,6 @@ button{
   transition: background-color 0.3s ease; /* 호버 부드럽게 설정 */
   position: relative;
   left: 44%;
-
 }
 
 
