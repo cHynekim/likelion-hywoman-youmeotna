@@ -14,14 +14,40 @@
         </header>
         <main>
             <section class="statusBar">
-                <!--진행바-->
+                <div class="steps">
+                    <div class="circle active">1</div>
+                    <div class="circle">2</div>
+                    <div class="circle">3</div>
+                    <div class="circle">4</div>
+                    <div class="circle">5</div>
+
+                    <div class="progress-bar">
+                        <span class="indicator"></span>
+                    </div>
+                </div>
             </section>
             <section class="paymentList">
                 <!--결제 과정-->
                 <ul>
                     <li class="process">
-                        <span>process1</span>
-                        <div>결제 과정1</div>
+                        <span>배송지 입력</span>
+                        <form class="mainBox">
+                            <div class="first">
+                                <p class="bigText">딸 독립집</p>
+                                <button>기본배송지</button>
+                            </div>
+                            <div class="second">
+                                <p>서울특별시 성동구 살곶이길 200 102동 305호</p>
+                            </div>
+                            <div class="third">
+                                <label for="mentOp">배송시 요청사항</label>
+                                <select class="dropdown" name="ment" id="mentOp">
+                                    <option value="door">문 앞에 놓고 가주세요</option>
+                                    <option value="door">무인택배함에 넣어주세요</option>
+                                    <option value="door">경비실에 맡겨주세요</option>
+                                </select>
+                            </div>
+                        </form>
                     </li>
                     <li class="process">
                         <span>process2</span>
@@ -42,7 +68,7 @@
                 </ul>
             </section>
             <!--Next Btn-->
-            <button type="button" class="nextBtn">다음으로</button>
+            <button type="button" class="nextBtn" id="next">다음으로</button>
         </main>
     </div>
 </body>

@@ -51,3 +51,22 @@ window.onresize = function(){
     newlist.style.left = `${-currentIdx * newlistsWidth}px`;
     check = true;
 }
+
+//DOM 요소
+const circles = document.querySelectorAll(".circle"),
+    progressBar = document.querySelector(".indicator"),
+    button = document.getElementById("next");
+
+let currentStep =1; //스텝 기본값
+//버튼 눌렀을 때 다음circle로 넘어가게 확인, circle색 채워지게  
+const upsateSteps = (e) => {
+    currentStep = e.target.id === "next" ? ++currentStep: --currentStep; //이전 버튼이 없긴하지만..
+
+    circles.forEach((circle, index) => {
+        circle.classList[`${index < currentStep ? "add" : "remove"}`]("active");
+    });
+//스텝에 맞게 바 색 채우기
+    progressBar.style.width = `${((currentStep -1) / (circles.length -1 )) * 100}%`;
+};
+button.addEventListener("click", upsateSteps);
+
