@@ -20,6 +20,10 @@ nextBtn.onclick = function(){
 }
 //이동 애니메이션
 function next(num){
+    //끝에 도달하면 애니메이션 작동X
+    if(num == 5){
+        return;
+    }
     lists[num-1].style.transform = 'scale(90%)';
     lists[num].style.transform = 'scale(90%)';
     setTimeout(function(){
@@ -27,6 +31,14 @@ function next(num){
     },300);
     setTimeout(function(){
         lists[num].style.transform = 'scale(100%)';
+        //마지막 단계 도달 시 버튼 내용 변경
+        if(lists[num] == lists[4]){
+            nextBtn.innerText = '결제완료';
+            nextBtn.style.backgroundColor = '#FEAF96';
+            nextBtn.style.color = '#2A343D';
+            let css = '.nextBtn:hover{background-color: #FEAF96; color: #2A343D;}';
+            nextBtn.styleSheet.cssText = css;
+        }
     },1000);
     currentIdx = num;
 }
