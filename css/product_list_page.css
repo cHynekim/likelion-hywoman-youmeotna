@@ -48,6 +48,7 @@ html,body {
   flex-direction: row;
   justify-content: space-around;
 }
+
 .btn button{
   background-color: #FDAF96;
   border: none;
@@ -57,9 +58,11 @@ html,body {
   position: relative;
   cursor: pointer;
 }
+
 .btn button:nth-of-type(2){
   background-color: #FFF1DB;
 }
+
 .btn button img{
   width: 70%;
   max-width: 30px;
@@ -70,16 +73,16 @@ html,body {
   transform: translate(-50%, -50%);
 }
 
-/*카테고리 버튼 3개*/
+/*상단 카테고리 버튼 3개*/
 
 .btn_container{
   display: flex;
   position: relative;
-  
 }
-button{
+
+.btn_container button, .to_btncontainer button{
   background: transparent;
-  background-color: #FFF;
+  background-color: #FFF1DB;
   border: none;
   cursor: pointer;
 }
@@ -93,7 +96,7 @@ button{
   background-color: #FFF1DB;
   transition: background-color 0.3s ease; /* 호버 부드럽게 설정 */
   position: relative;
-  left: 20%;
+  left: 18%;
 }
 
 .fastest{
@@ -105,7 +108,7 @@ button{
   background-color: #FFF1DB;
   transition: background-color 0.3s ease;  /*호버 부드럽게 설정 */
   position: relative;
-  left: 32%;
+  left: 31%;
 }
 
 .cheap{
@@ -128,38 +131,81 @@ button{
   flex-direction: column;
 }
 
-.product_1{
-  background-color: #FFF1DB;
-  position: relative;
-  margin: 8% 14% 2% 14%;
-  min-height: 150px;
+
+.product_1 b, .product_2 b, .product_3 b, .product_4 b{
+  margin: 3%;
 }
 
+/*포도*/
+.product_1{ 
+  position: relative;
+  margin: 2% 14% 2% 14%;
+  min-height: 150px;
+  border: #FFF1DB solid 10px;
+  display: flex; /* 요소 내부의 요소들을 가로로 나열 */
+  align-items: center; /* 수직 중앙 정렬 */
+  padding: 20px; /* 내부 패딩 추가 */
+  }
+
+/*고등어*/
 .product_2{
-  background-color: #FFF1DB;
   position: relative;
   margin: 2% 14% 2% 14%;
   min-height: 150px;
+  border: #FFF1DB solid 10px;
+  display: flex; /* 요소 내부의 요소들을 가로로 나열 */
+  align-items: center; /* 수직 중앙 정렬 */
+  padding: 20px; /* 내부 패딩 추가 */
 }
 
+/*생수*/
 .product_3{
-  background-color: #FFF1DB;
   position: relative;
   margin: 2% 14% 2% 14%;
   min-height: 150px;
+  border: #FFF1DB solid 10px;
+  display: flex; /* 요소 내부의 요소들을 가로로 나열 */
+  align-items: center; /* 수직 중앙 정렬 */
+  padding: 20px; /* 내부 패딩 추가 */
+
 }
 
+/*감자*/
 .product_4{
-  background-color: #FFF1DB;
   position: relative;
   margin: 2% 14% 2% 14%;
   min-height: 150px;
+  border: #FFF1DB solid 10px;
+  display: flex; /* 요소 내부의 요소들을 가로로 나열 */
+  align-items: center; /* 수직 중앙 정렬 */
+  padding: 20px; /* 내부 패딩 추가 */
+
 }
 
+/* 즐겨찾기 별 */
 .star {
   position: relative;
   width: 4%;
-  left: -60%;
+  left: -25%;
+  top: 55px;
+  cursor: pointer;
+  
+}
+
+/* 클릭 전 링크 스타일 */
+a {
+  text-decoration: none;
+  color: #2A343D; /* 기본 링크 색상 (검정색) */
+}
+
+/* 클릭한 후 링크 스타일 */
+a:visited {
+  color: #2A343D; /* 방문한 링크 색상 (검정색) */
+}
+
+/* 호버(마우스를 올렸을 때) 링크 스타일 */
+a:hover {
+  color: #2A343D; 
 }
 
 /* 하단 버튼 두개 */
