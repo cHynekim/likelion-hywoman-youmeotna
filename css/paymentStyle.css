@@ -123,31 +123,76 @@ main{
     min-width: 285px;
     height: 100%;
     float: left;
-    position: relative;
-    transition: 0.3s;
-}
-.process span{
-    font-size: 1.1em;
-    position: absolute;
-    top: 2%;
-    left: 2%;
-}
-.process div{
-    width: 96%;
-    height: 90%;
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
-    background-color: #fff5f5;
-    border-radius: 15px;
-    /*임시 글씨 배치 스타일*/
-    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    transition: 0.3s;
 }
-/*임시 - 모두 구현되면 결제 과정n 완료 시 버튼에 불 들어오게끔*/
+.process>span{
+    font-size: 0.85em;
+    width: 96%;
+    height: auto;
+    margin: 0 auto;
+}
+.process>div{
+    width: 96%;
+    height: 90%;
+    margin: 0 auto;
+    position: relative;
+    top: 3%;
+    background-color: #fff5f5;
+    border-radius: 15px;
+}
+.checkSum span:nth-of-type(1){
+    font-weight: bold;
+    position: absolute;
+    top: 3%;
+    left: 3%;
+}
+.checkSum span:nth-of-type(2){
+    position: absolute;
+    top: 20%;
+    right: 3%;
+    color: rgb(57, 80, 255);
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.payAgree span{
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+.payAgree span:nth-of-type(1){
+    font-size: 0.9em;
+    text-align: center;
+    top: 7%;
+}
+.payAgree span:nth-of-type(2){
+    font-size: 0.75em;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0.9;
+    top: 30%;
+}
+.payAgree label{
+    width: 40%;
+    height: 10%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 0.9em;
+    line-height: 150%;
+}
+.payAgree label input{
+    width: 20%;
+    height: 70%;
+    border: none;
+}
 .nextBtn{
     width: 60%;
     max-width: 510px;
@@ -166,10 +211,8 @@ main{
     cursor: pointer;
 }
 .nextBtn:hover{
-    background-color: #FDAF96;
-    color: #2A343D;
+    background-color: #ffcdc4;
 }
-/*임시 끝*/
 .nextBtn:active{
     transition: none;
     box-shadow: 1px 1px 4px 2.5px rgba(100, 100, 100, 0.3) inset;
