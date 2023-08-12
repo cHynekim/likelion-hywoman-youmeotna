@@ -20,6 +20,18 @@ nextBtn.onclick = function(){
 }
 //이동 애니메이션
 function next(num){
+    //동의 유무 확인, 동의 체크 안 할 시 페이지 이동 없음
+    if(num == 4){
+        let isChecked = document.querySelector('.payAgree label input').checked;
+        if(isChecked == false){
+            alert('이용약관에 동의해야 결제 진행이 가능합니다.');
+            return;
+        }
+        else{
+            nextBtn.style.backgroundColor = 'ffcdc4';
+            alert('안전히 배송해드리겠습니다 :)');
+        }
+    }
     //끝에 도달하면 애니메이션 작동X
     if(num == 5){
         return;
