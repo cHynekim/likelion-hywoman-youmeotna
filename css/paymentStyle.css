@@ -56,6 +56,52 @@ main{
     margin: 0 auto;
     border: solid 1px #ddd;
 }
+.steps{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: gray; */
+    position: relative;
+}
+.steps .circle{
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #999;
+    background-color: #fff;  
+    transition: all 200ms ease;
+    transition-delay: 0s;
+}
+.steps .circle.active{
+    border-color: #FDAF96;
+    color: #FDAF96;
+    transition-delay: 100ms;
+}
+.steps .progress-bar{
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: #e0e0e0;
+    z-index: -1;
+}
+.progress-bar .indicator{
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background-color: #FDAF96;
+    transition: all 300ms ease;
+}
+
+
 .paymentList{
     width: 100%;
     max-width: 710px;
@@ -127,4 +173,22 @@ main{
 .nextBtn:active{
     transition: none;
     box-shadow: 1px 1px 4px 2.5px rgba(100, 100, 100, 0.3) inset;
+}
+.mainBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.first{
+    height: 10%;
+    position: absolute;
+    top: 140px;
+
+}
+.second{
+    height: 30%;
+}
+.third{
+    height: 50%;
 }
