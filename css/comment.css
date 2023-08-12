@@ -1,0 +1,82 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'HakgyoansimWoojuR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*전체 태그들의 마진, 패딩 초기화 및 글꼴 설정*/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'HakgyoansimWoojuR';
+  font-size: 22px;
+  color: #2A343D;
+}
+
+html,body {
+width: 100%;
+height: 100%;
+background-color: #fff;
+}
+
+/*검색창,로고*/
+.logo{
+display: block;
+margin: 0 auto;
+
+}
+.search{
+width: 100%;
+height: 20%;
+position: relative;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.search form{
+width: 100%;
+height: 50%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+.search form input{
+width: 75%;
+height: 90%;
+padding-left: 15px;
+border: 2px solid #FDAF96;
+border-radius: 20px;
+font-size: 0.6em;
+}
+.search form .btn{
+width: 20%;
+height: 90%;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+}
+.btn button{
+background-color: #FDAF96;
+border: none;
+border-radius: 3px;
+width: 45%;
+height: 100%;
+position: relative;
+cursor: pointer;
+}
+.btn button:nth-of-type(2){
+background-color: #FFF1DB;
+}
+.btn button img{
+width: 70%;
+max-width: 30px;
+object-fit: cover;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+/*
