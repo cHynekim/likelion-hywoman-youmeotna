@@ -30,28 +30,74 @@
                 <!--결제 과정-->
                 <ul>
                     <li class="process">
-                        <span>배송지 입력</span>
+                        <span class="title">배송지 입력</span>
                         <form class="mainBox">
                             <div class="first">
-                                <p class="bigText">딸 독립집</p>
+                                <p class="bigText">딸 자취방</p>
                                 <button>기본배송지</button>
                             </div>
                             <div class="second">
-                                <p>서울특별시 성동구 살곶이길 200 102동 305호</p>
+                                <p>서울특별시 성동구 살곶이길 200</p>
+                                <p>101동 203호</p>
                             </div>
                             <div class="third">
                                 <label for="mentOp">배송시 요청사항</label>
                                 <select class="dropdown" name="ment" id="mentOp">
                                     <option value="door">문 앞에 놓고 가주세요</option>
-                                    <option value="door">무인택배함에 넣어주세요</option>
-                                    <option value="door">경비실에 맡겨주세요</option>
+                                    <option value="box">무인택배함에 넣어주세요</option>
+                                    <option value="fontmen">경비실에 맡겨주세요</option>
                                 </select>
                             </div>
                         </form>
                     </li>
                     <li class="process">
-                        <span>process2</span>
-                        <div>결제 과정2</div>
+                        <span class="title">주문목록</span>
+                        <form action="#" class="pr2">
+                            <div class="dropdown2">
+                                <div class="wrap">
+                                    <button onclick="myFunction(event)" class="dropbtn2">
+                                    유기농 포도 외 3건  <img src="../image/Group 8797.png" alt="">
+                                    </button>
+                                    <div id="myDropdown1" class="dropdown-content">
+                                        <div class="product">
+                                            <img src="../image/product_grape.jpg" alt="">
+                                            <a href="#">
+                                                <p>유기농 포도</p>
+                                                <p>1 개</p>
+                                                <p>4,500원</p>
+                                            </a>
+                                        </div>
+                                        <div class="product">
+                                            <img src="../image/product_grape.jpg" alt="">
+                                            <a href="#">
+                                                <p>고당도 꿀 수박</p>
+                                                <p>1 개</p>
+                                                <p>4,500원</p>
+                                            </a>
+                                        </div>
+                                        <div class="product">
+                                            <img src="../image/product_grape.jpg" alt="">
+                                            <a href="#">
+                                                <p>이중미세모 칫솔</p>
+                                                <p>1 개</p>
+                                                <p>4,500원</p>
+                                            </a>
+                                        </div>
+                                        <div class="product">
+                                            <img src="../image/product_grape.jpg" alt="">
+                                            <a href="#">
+                                                <p>친환경 감자 800g</p>
+                                                <p>1 개</p>
+                                                <p>4,500원</p>
+                                            </a>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                
+                            </div>
+                        </form>
+
+                        
                     </li>
                     <li class="process">
                         <span>결제 금액 확인</span>

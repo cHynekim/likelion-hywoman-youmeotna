@@ -64,7 +64,7 @@ window.onresize = function(){
     check = true;
 }
 
-//DOM 요소
+//진행바 DOM 요소
 const circles = document.querySelectorAll(".circle"),
     progressBar = document.querySelector(".indicator"),
     button = document.getElementById("next");
