@@ -80,11 +80,13 @@ main{
     background-color: #fff;  
     transition: all 200ms ease;
     transition-delay: 0s;
+    cursor: default;
 }
 .steps .circle.active{
     border-color: #FDAF96;
     color: #FDAF96;
     transition-delay: 100ms;
+    cursor: pointer;
 }
 .steps .progress-bar{
     position: absolute;
