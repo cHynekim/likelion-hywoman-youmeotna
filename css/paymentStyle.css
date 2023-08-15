@@ -313,6 +313,7 @@ main{
     color: rgb(0, 0, 0);
     padding: 16px;
     font-size: 1rem;
+    font-weight: bold;
     border: none;
     cursor: pointer;
     width: 100%;
@@ -378,14 +379,23 @@ main{
 /* Links inside the dropdown */
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
     text-decoration: none;
     display: block;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .dropdown-content a p{
     position: relative;
     left: 5%;
+}
+.dropdown-content a p:nth-of-type(2), .dropdown-content a p:nth-of-type(3){
+    font-size: 0.9em;
+}
+.dropdown-content a p:nth-of-type(3){
+    color: #1683ff;
+    font-weight: bold;
 }
 .dropdown-content img{
     width: 160px;
@@ -421,4 +431,107 @@ main{
 .kakao_pay{
     background-color: #FEE500;
     color: #191919;
+}
+#success-modal{
+    width: 350px;
+    height: 600px;
+    background-color: #ffe7df;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; */
+}
+.modal-title{
+    width: 200px;
+    height: 140px;
+    position: relative;
+    top: 25px;
+    left: 75px;
+}
+.modal-title img{
+    display: block;
+    width: 90px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.modal-title span{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 0;
+}
+#success-modal .content{
+    width: 300px;
+    height: 350px;
+    position: absolute;
+    top: 180px;
+    left: 25px;
+    border-radius: 15px;
+    background-color: #fff2ef;
+}
+.content{
+    font-size: 0.9em;
+    text-align: center;
+    font-weight: bold;
+}
+.content .slide{
+    width: 200px;
+    height: 100px;
+    margin: 25% auto;
+    position: relative;
+    overflow: hidden;
+}
+.slide img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.slide .list{
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 0;
+}
+.list li{
+    height: 40px;
+    font-size: 1em;
+    font-weight: lighter;
+    text-align: center;
+    line-height: 40px;
+}
+.animate{
+    transition: 2s;
+}
+#success-modal button{
+    width: 60%;
+    max-width: 510px;
+    height: 50px;
+    position: absolute;
+    bottom: 1.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9em;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    background-color: #FDAF96;
+    color: #fff;
+    transition: 0.5s;
+    cursor: pointer;
+}
+#success-modal button:active{
+    transition: none;
+    box-shadow: 1px 1px 4px 2.5px rgba(100, 100, 100, 0.3) inset;
+}
+.hidden{
+    display: none;
 }
