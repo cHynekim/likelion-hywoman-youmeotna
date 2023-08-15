@@ -1,12 +1,18 @@
 //버튼 클릭 시 다음으로 이동
-let wdu = document.querySelector('.paymentList');
-let list = document.querySelector('.paymentList ul');
-let lists = document.querySelectorAll('.process');
-let listsWidth = lists[1].offsetLeft - lists[0].offsetLeft;
-let nextBtn = document.querySelector('.nextBtn');
-let currentIdx = 0;
+let wdu = document.querySelector('.paymentList'),
+    list = document.querySelector('.paymentList ul'),
+    lists = document.querySelectorAll('.process'),
+    listsWidth = lists[1].offsetLeft - lists[0].offsetLeft,
+    nextBtn = document.querySelector('.nextBtn'),
+    currentIdx = 0;
 //브라우저 창 크기 변경 유무 확인 변수
-let check = false;
+let check = false,
+    isChecked = document.querySelector('.payAgree label input').checked;
+//진행바
+let circles = document.querySelectorAll(".circle"),
+    progressBar = document.querySelector(".indicator"),
+    button = document.getElementById("next");
+
 //클릭 시, 브라우저 창 변경 유무 확인 후 페이지 이동
 nextBtn.onclick = function(){
     if(check == false){
@@ -22,7 +28,7 @@ nextBtn.onclick = function(){
 function next(num){
     //동의 유무 확인, 동의 체크 안 할 시 페이지 이동 없음
     if(num == 4){
-        let isChecked = document.querySelector('.payAgree label input').checked;
+        isChecked = document.querySelector('.payAgree label input').checked;
         if(isChecked == false){
             alert('이용약관에 동의해야 결제 진행이 가능합니다.');
             return;
@@ -39,6 +45,9 @@ function next(num){
     lists[num].style.transform = 'scale(90%)';
     setTimeout(function(){
         list.style.left = `${-num * listsWidth}px`;
+        //진행바 애니메이션
+        circles[num].classList.add('active');
+        progressBar.style.width = `${((num) / (circles.length -1 )) * 100}%`;
     },300);
     setTimeout(function(){
         lists[num].style.transform = 'scale(100%)';
@@ -58,23 +67,14 @@ window.onresize = function(){
     newlist.style.left = `${-currentIdx * newlistsWidth}px`;
     check = true;
 }
-//진행바 DOM 요소
-const circles = document.querySelectorAll(".circle"),
-    progressBar = document.querySelector(".indicator"),
-    button = document.getElementById("next");
-
-let currentStep =1; //스텝 기본값
-//버튼 눌렀을 때 다음circle로 넘어가게 확인, circle색 채워지게  
-const upsateSteps = (e) => {
-    currentStep = e.target.id === "next" ? ++currentStep: --currentStep; //이전 버튼이 없긴하지만..
-
-    circles.forEach((circle, index) => {
-        circle.classList[`${index < currentStep ? "add" : "remove"}`]("active");
-    });
-//스텝에 맞게 바 색 채우기
-    progressBar.style.width = `${((currentStep -1) / (circles.length -1 )) * 100}%`;
-};
-button.addEventListener("click", upsateSteps);
+//이전 진행 단계로 클릭 시 이동
+for(let i =0; i<circles.length; i++){
+    circles[i].onclick = function(){
+        if(circles[i].classList.contains('active') == true){
+            list.style.left = `${-i * listsWidth}px`;
+        }
+    }
+}
 // 주문목록 드롭다운
 function myFunction(event) {
     event.preventDefault();
