@@ -175,12 +175,12 @@ html,body {
     }
     .basketdiv .num {
         width: 33%;
-      min-width: 105px;
+        min-width: 105px;
       /* background-color: #d3e2c6; */
     }
     .basketdiv .sum {
         width: 30%;
-      max-width: 80px;
+        max-width: 80px;
         color: #025fc9;
     }
 
@@ -189,7 +189,7 @@ html,body {
     }
     .basketdiv .data .pname {
         text-align: left !important;
-      line-height: 1.2 !important;
+        line-height: 1.2 !important;
     }
     .basketdiv .data .price, .basketdiv .data .sum, .basketdiv .data .point {
         text-align: right;
@@ -336,7 +336,6 @@ input{
     .basketdiv .row > .subdiv:nth-child(1) {
         width: 35%;
     }
-
 
     .basketdiv .row > .subdiv:nth-child(2) {
         width: 55%;

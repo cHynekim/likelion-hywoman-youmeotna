@@ -340,7 +340,6 @@ main{
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: aqua;
 }
 .wrap{
     width: 100%;
@@ -348,20 +347,20 @@ main{
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    /* display: none; */
-    /* position: absolute; */
+    display: none;
     background-color: #f9f9f9;
-    /* min-width: 160px; */
+    min-width: 160px;
     width: 100%;
-    height: auto;
+    height: 90%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    overflow: scroll;
 }
 
 .dropdown-content::-webkit-scrollbar{
     width: 5px;
 }
 .dropdown-content::-webkit-scrollbar-thumb {
-    height: 20%; /* 스크롤바의 길이 */
+    height: 10%; /* 스크롤바의 길이 */
     background: #ffccba; /* 스크롤바의 색상 */
     
     border-radius: 10px;
