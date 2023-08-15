@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
   nicknameOutput.textContent = nicknameData;
 });
 
+
 // 생일을 불러오는 js
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
       console.error("데이터 가져오기 오류:", error);
     });
 });
+
 
 // 리뷰목록을 불러오는 js
 

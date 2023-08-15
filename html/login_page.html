@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>로그인 페이지</title>
   <link rel="stylesheet" href="../css/login_page.css">
+  <script src="../js/login.js"></script>
 </head>
 <body>
   <!--로고-->
@@ -19,11 +20,13 @@
       <input type="password" placeholder="비밀번호를 입력하세요" id="password">
     </div>
     <!--비밀번호 변경-->
-    <a href="메인페이지" class="change_pw">비밀번호 변경</a>
+    <a href="#" class="change_pw">비밀번호 변경</a>
     <!--하단 버튼-->
-    <button class="start_btn">시작하기</button>
-    <div class="first">처음이신가요?</div>
-    <button class="join_btn">회원가입하기</button>
+    <a href="../html/main.html" class="start">시작하기</a>
+    <div class="joinContainer">
+      <div class="first">처음이신가요?</div>
+      <a href="../html/signUp.html" class="join">회원가입하기</a>
+    </div>
   </form>
 </body>
 </html>

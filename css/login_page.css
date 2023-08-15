@@ -61,6 +61,11 @@ input{
   left: 25.5%;
 }
 
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  font-size: 142%; /* 원하는 폰트 크기로 변경하세요 */
+}
+
 .pw{
   position: absolute;
   top: 33%;
@@ -73,9 +78,9 @@ input{
 .change_pw {
   position: absolute;
   top: 38%;
-  left: 46.5%;
+  left: 45.5%;
   text-decoration: none;
-  font-size: 120%;
+  font-size: 150%;
 }
 
 /*하단 버튼*/
@@ -109,34 +114,36 @@ button:hover{
   color: #fff;
 }
 
-.start_btn{
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 57%;
-  left: 40%;
-  font-size: 160%;
+/*시작하기*/
+.start{
+  position: relative;
+  top: 300px;
+  left: 45.5%;
+  font-size: 40px;
+  text-decoration: none;
 }
 
-.join_btn{
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 70%;
-  left: 40%;
-  font-size: 160%;
+/*회원가입하기*/
+.join{
+  position: relative;
+  top: 370px;
+  left: 34.5%;
+  font-size: 40px;
+  text-decoration: none;
 }
 
+/*처음이신가요?*/
 .first {
-  position: absolute;
-  top: 66%;
-  left: 47%;
-  font-size: 110%;
+  position: relative;
+  top: 320px;
+  left: 46.5%;
+  font-size: 20px;
+  display: inline;
 }
 
-
+.joinContainer{
+  position: relative;
+}
 /* 미디어 쿼리 데스크톱 화면에 대한 스타일 */
 /*@media screen and (min-width: 1024px) {
   body {
