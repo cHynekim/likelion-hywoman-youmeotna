@@ -79,7 +79,23 @@ const upsateSteps = (e) => {
     progressBar.style.width = `${((currentStep -1) / (circles.length -1 )) * 100}%`;
 };
 button.addEventListener("click", upsateSteps);
-
+// 주문목록 드롭다운
+function myFunction(event) {
+    event.preventDefault();
+    document.getElementById("myDropdown1").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn2')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 //결제 API
 var IMP = window.IMP; // 생략 가능
     IMP.init("imp85415064"); // 예: imp00000000
