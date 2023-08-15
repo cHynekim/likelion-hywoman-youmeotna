@@ -6,7 +6,10 @@
   font-weight: normal;
   font-style: normal;
 }
-
+*{
+  margin: 0;
+  padding: 0;
+}
 html,body {
   font-family: 'HakgyoansimWoojuR';
   width: 100%;
@@ -15,27 +18,27 @@ html,body {
 
 /*상단 검색바, 로고*/
 .logo{
+  width: 100px;
+  height: auto;
   display: block;
-    margin: 0 auto;
+  margin: 0 auto;
 }
 .search{
   width: 100%;
-  height: 20%;
+  height: 6%;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 .search form{
   width: 100%;
-  height: 50%;
+  height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 }
 .search form input{
   width: 75%;
-  height: 90%;
+  height: 100%;
   padding-left: 15px;
   border: 2px solid #FDAF96;
   border-radius: 20px;
@@ -43,10 +46,11 @@ html,body {
 }
 .search form .btn{
   width: 20%;
-  height: 90%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  
 }
 
 .btn button{
@@ -76,138 +80,150 @@ html,body {
 /*상단 카테고리 버튼 3개*/
 
 .btn_container{
+  width: 100%;
+  height: 15%;
   display: flex;
-  position: relative;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .btn_container button, .to_btncontainer button{
   background: transparent;
-  background-color: #FFF1DB;
   border: none;
   cursor: pointer;
 }
 
 .popularity{
-  top: 50%;
-  border: #e2dcd6 solid 3px;
+  height: 20%;
+  border: #e2dcd6 solid 2px;
   border-radius: 20px;
   padding: 3%;
   /*position: relative;*/
   background-color: #FFF1DB;
   transition: background-color 0.3s ease; /* 호버 부드럽게 설정 */
   position: relative;
-  left: 18%;
+
 }
 
 .fastest{
-  top: 50%;
-  border: #e2dcd6 solid 3px;
+  height: 20%;
+  border: #e2dcd6 solid 2px;
   border-radius: 20px;
   padding: 3%;
   /*position: relative;*/
   background-color: #FFF1DB;
   transition: background-color 0.3s ease;  /*호버 부드럽게 설정 */
   position: relative;
-  left: 31%;
+
 }
 
 .cheap{
-  top: 50%;
-  border: #e2dcd6 solid 3px;
+  height: 20%;
+  border: #e2dcd6 solid 2px;
   border-radius: 20px;
   padding: 3%;
   /*position: relative;*/
   background-color: #FFF1DB;
   transition: background-color 0.3s ease; /* 호버 부드럽게 설정 */
   position: relative;
-  left: 44%;
 }
 
 
 /*상품 이미지, 소개*/
 .product_container{
+  width: 80%;
+  height: 60%;
   display: flex;
   position: relative;
   flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  left: 40px;
+}
+.product_container::-webkit-scrollbar{
+  width: 5px;
+}
+.product_container::-webkit-scrollbar-thumb {
+  height: 10%; /* 스크롤바의 길이 */
+  background: #ffccba; /* 스크롤바의 색상 */
+  
+  border-radius: 10px;
 }
 
+.product_container::-webkit-scrollbar-track {
+  background: rgba(25, 121, 255, 0.1);  /*스크롤바 뒷 배경 색상*/
+}
 
 .product_1 b, .product_2 b, .product_3 b, .product_4 b{
   margin: 3%;
 }
 
 /*포도*/
-.product_1{ 
+.product_1, .product_2, .product_3, .product_4{ 
+  width: 70%;
   position: relative;
-  margin: 2% 14% 2% 14%;
-  min-height: 150px;
-  border: #FFF1DB solid 10px;
+  margin: 10px 0;
+  min-height: 90px;
+  border: #FFF1DB solid 5px;
   display: flex; /* 요소 내부의 요소들을 가로로 나열 */
   align-items: center; /* 수직 중앙 정렬 */
   padding: 20px; /* 내부 패딩 추가 */
-  }
-
-/*고등어*/
-.product_2{
-  position: relative;
-  margin: 2% 14% 2% 14%;
-  min-height: 150px;
-  border: #FFF1DB solid 10px;
-  display: flex; /* 요소 내부의 요소들을 가로로 나열 */
-  align-items: center; /* 수직 중앙 정렬 */
-  padding: 20px; /* 내부 패딩 추가 */
+  overflow: hidden;
 }
 
-/*생수*/
-.product_3{
-  position: relative;
-  margin: 2% 14% 2% 14%;
-  min-height: 150px;
-  border: #FFF1DB solid 10px;
-  display: flex; /* 요소 내부의 요소들을 가로로 나열 */
-  align-items: center; /* 수직 중앙 정렬 */
-  padding: 20px; /* 내부 패딩 추가 */
-
-}
-
-/*감자*/
-.product_4{
-  position: relative;
-  margin: 2% 14% 2% 14%;
-  min-height: 150px;
-  border: #FFF1DB solid 10px;
-  display: flex; /* 요소 내부의 요소들을 가로로 나열 */
-  align-items: center; /* 수직 중앙 정렬 */
-  padding: 20px; /* 내부 패딩 추가 */
-
-}
-
-/* 즐겨찾기 별*/
-
-.star {
-  position: relative;
+.wrap{
   width: 100%;
-  left: 27%;
-  top: 40%;
-  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
- 
- .starContainer button{
-  background-color: #fff;
-  border: none;
+/* 즐겨찾기 별*/
+.starContainer{
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  cursor: pointer;
-  left: 9%;
-  width: 4%;
-  top: 70px;
- }
-
+  top: -40px;
+  left: -10px;
+}
+.starContainer button{
+  border-style: none;
+  background-color: white;
+}
+.star{  
+  position: relative;
+  width: 27px;
+  height: 25px;
+}
+a img{
+  width: 130px;
+  height: auto;
+}
 /* 클릭 전 링크 스타일 */
 a {
   text-decoration: none;
   color: #2A343D; /* 기본 링크 색상 (검정색) */
 }
-
+.title{
+  width: 90%;
+  height: 30%;
+  font-weight: bold;
+  font-size: 1.15rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.price{
+  width: 90%;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.15rem;
+}
 /* 클릭한 후 링크 스타일 */
 a:visited {
   color: #2A343D; /* 방문한 링크 색상 (검정색) */
@@ -222,28 +238,64 @@ a:hover {
 
 .to_btncontainer{
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0;
   justify-content: center;
 }
 
 .toBookmark_btn{
   position: relative;
-  top: 185%;
-  left: -11%;
-  border: #e2dcd6 solid 3px;
   border-radius: 20px;
-  padding: 4%;
+  border: #e2dcd6 solid 1px;
+  padding: 3%;
   font-size: 130%;
-  background-color:#FFF1DB;
+  background-color:#ffefa1;
+  max-width: 400px;
+  right: 80px;
 }
 
 .toCart_btn{
   position: relative;
-  top: 185%;
-  left: 11%;
-  border: #e2dcd6 solid 3px;
+  border: #e2dcd6 solid 1px;
   border-radius: 20px;
-  padding: 4%;
+  padding: 3%;
   font-size: 130%;
   background-color:#FFF1DB;
+  max-width: 400px;
+  left: 80px;
 }
+@media (min-width: 1200px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .product_container {
+    width: 60%; /* 조정 가능 */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  
+  .to_btncontainer {
+    width: 60%; /* 조정 가능 */
+    height: 20%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  .search{
+    width: 70%;
+  }
+  .btn_container{
+    height: 20%;
+    width: 70%;
+  }
+  .btn_container > div{
+    height: 20px;
+  }
 
+}
