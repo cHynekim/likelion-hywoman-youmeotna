@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GomPay</title>
     <link rel="stylesheet" href="../css/paymentStyle.css" type="text/css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
     <script src="../js/paymentScript.js" defer type="text/javascript"></script>
 </head>
 <body>
@@ -39,7 +41,7 @@
                             <div class="second">
                                 <p>서울특별시 성동구 살곶이길 200</p>
                                 <p>101동 203호</p>
-                            </div>
+                            </div> 
                             <div class="third">
                                 <label for="mentOp">배송시 요청사항</label>
                                 <select class="dropdown" name="ment" id="mentOp">
@@ -121,7 +123,16 @@
                     </li>
                     <li class="process">
                         <span>process5</span>
-                        <div>결제 과정5</div>
+                        <div>
+                            <form class="order-form">
+                                <button class="inicis_pay" type="submit">
+                                    카드 일반 결제
+                                </button>
+                                <button class="kakao_pay" type="submit">
+                                    카카오 간편 결제
+                                </button>
+                            </form>
+                        </div>
                     </li>
                 </ul>
             </section>
