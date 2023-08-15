@@ -44,11 +44,7 @@ function next(num){
         lists[num].style.transform = 'scale(100%)';
         //마지막 단계 도달 시 버튼 내용 변경
         if(lists[num] == lists[4]){
-            nextBtn.innerText = '결제완료';
-            nextBtn.style.backgroundColor = '#FEAF96';
-            nextBtn.style.color = '#2A343D';
-            // let cssStyle = '.nextBtn:hover{background-color: #FEAF96; color: #2A343D;}';
-            // nextBtn.styleSheet.cssText = cssStyle;
+            nextBtn.style.display = 'none';
         }
     },1000);
     currentIdx = num;
@@ -96,45 +92,62 @@ window.onclick = function(event) {
     }
   }
 }
+//총 가격
+let sumEl = document.querySelector('.paySum');
+let productPrice = document.querySelectorAll('.product p:nth-of-type(3)'),
+    productAmount = document.querySelectorAll('.product p:nth-of-type(2)'),
+    product = document.querySelectorAll('.product'),
+    paySum = 0;
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+for(let i = 0; i<productPrice.length; i++){
+    let price = productPrice[i].innerText,
+        intPrice = '';
+    for(let j = 0; j<price.length; j++){
+        if(price[j] == '원'){
+            intPrice = parseInt(intPrice);
+            break;
+        }
+        if(price[j] == ','){
+            continue;
+        }
+        intPrice = intPrice.concat(price[j]);
+    }
+    paySum += intPrice * parseInt(productAmount[i].innerText);
+}
+sumEl.innerText = `${numberWithCommas(paySum)} 원`;
 //결제 API
 var IMP = window.IMP; // 생략 가능
     IMP.init("imp85415064"); // 예: imp00000000
 
 //결제건에 대한 정보 변수 설정
 let productName = document.querySelector('.dropbtn2').innerText;
-let price = document.querySelector('.paySum').innerText,
-    allPrice = '';
-for(let i = 0; i<price.length; i++){
-    if(price[i] == ' '){
-        allPrice = parseInt(allPrice);
-        break;
-    }
-    if(price[i] == ','){
-        continue;
-    }
-    allPrice = allPrice.concat(price[i]);
-}
 let address = document.querySelectorAll('.second p'),
     allAddress = address[0].innerText+' '+address[1].innerText;
-
+let succeed = true;
 document.querySelector('.inicis_pay').onclick = function requestPay() {
     // IMP.request_pay(param, callback) 결제창 호출
     IMP.request_pay({ // param
         pg: "html5_inicis",
         pay_method: "card",
-        merchant_uid: "ORD20180131-0000011",
+        merchant_uid: "ORD20180131-0000013",
         name: `${productName}`,
-        amount: allPrice,
-        buyer_email: "gildong@gmail.com",
-        buyer_name: "홍길동",
-        buyer_tel: "010-4242-4242",
+        amount: 100,
+        buyer_email: "liaco819@naver.com",
+        buyer_name: "광장동물주먹",
+        buyer_tel: "010-9265-7224",
         buyer_addr: `${allAddress}`,
         buyer_postcode: "01181"
     }, function (rsp) { // callback
         if (rsp.success) {
-
+            alert('정상적으로 결제되었습니다');
+            document.querySelector('#success-modal').classList.remove('hidden');
         } else {
-
+            succeed = false;
+            var msg = '결제에 실패하였습니다. ';
+            msg += 'Error : ' + rsp.error_msg;
+            alert(msg);
         }
     });
   }
@@ -143,19 +156,89 @@ $(".kakao_pay").click(function(){
         pg: "kakaopay",
         pay_method: "card",
         merchant_uid: "ORD20180131-0000011",
-        name: "노르웨이 회전 의자",
-        amount: 1,
-        buyer_email: "gildong@gmail.com",
-        buyer_name: "홍길동",
-        buyer_tel: "010-4242-4242",
-        buyer_addr: "서울특별시 강남구 신사동",
+        name: `${productName}`,
+        amount: 100,
+        buyer_email: "liaco819@naver.com",
+        buyer_name: "광장동물주먹",
+        buyer_tel: "010-9265-7224",
+        buyer_addr: `${allAddress}`,
         buyer_postcode: "01181"
     }, function (rsp) { // callback
         if (rsp.success) {
-
+            alert('정상적으로 결제되었습니다');
+            document.querySelector('#success-modal').classList.remove('hidden');
         }
         else {
-
+            succeed = false;
+            var msg = '결제에 실패하였습니다. ';
+            msg += 'Error : ' + rsp.error_msg;
+            alert(msg);
         }
     })
 });
+
+//loop Carousel
+let slide = document.querySelector('.list'),
+    tags = document.querySelectorAll('.list li'),
+    tagLen = tags.length,
+    idx = 0,
+    tagHeight = 40;
+
+makeClone();
+function makeClone(){
+    for(let i = 0; i<tagLen; i++){
+        let clonetag = tags[i].cloneNode(true);
+        clonetag.classList.add('clone');
+        slide.append(clonetag);
+    }
+    for(let i = tagLen - 1; i >= 0; i--){
+        let clonetag = tags[i].cloneNode(true);
+        clonetag.classList.add('clone');
+        slide.prepend(clonetag);
+    }
+    ModifySlideWidth();
+    settingCarousel();
+    //배치 완료 후
+    setTimeout(function(){
+        slide.classList.add('animate');
+    }, 500);    //1초 뒤에 함수 내용 실행
+}
+function ModifySlideWidth(){
+    let currentTags = document.querySelectorAll('.list li');
+    let newtagLen = currentTags.length;
+
+    let newHeight = `${tagHeight * newtagLen}px`;
+    slide.style.height = newHeight;
+}
+function settingCarousel(){
+    let zero = tagHeight * tagLen;
+    slide.style.transform = `translateY(-${zero}px)`;
+}
+function move(num){
+    slide.style.top = `${-num * tagHeight}px`;
+    idx = num;
+    if(idx == tagLen || idx == -(tagLen)){
+        setTimeout(function(){
+            slide.classList.remove('animate');
+            slide.style.top = '0px';
+            idx = 0;
+        }, 2000);
+        setTimeout(function(){
+            slide.classList.add('animate');
+        }, 2030);
+    }
+}
+
+//infinity Carousel
+let trigger = undefined;
+function infinityCarousel(){
+    if(trigger == undefined){
+        trigger = setInterval(function(){
+            move(idx + 1);
+        }, 2000);
+    }
+}
+infinityCarousel(); //auto
+document.querySelector('#success-modal button').onclick = function(){
+    this.parentElement.parentElement.classList.add('hidden');
+}
