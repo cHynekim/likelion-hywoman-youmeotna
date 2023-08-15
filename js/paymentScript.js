@@ -29,7 +29,6 @@ function next(num){
         }
         else{
             nextBtn.style.backgroundColor = 'ffcdc4';
-            alert('안전히 배송해드리겠습니다 :)');
         }
     }
     //끝에 도달하면 애니메이션 작동X
@@ -48,8 +47,8 @@ function next(num){
             nextBtn.innerText = '결제완료';
             nextBtn.style.backgroundColor = '#FEAF96';
             nextBtn.style.color = '#2A343D';
-            let css = '.nextBtn:hover{background-color: #FEAF96; color: #2A343D;}';
-            nextBtn.styleSheet.cssText = css;
+            // let cssStyle = '.nextBtn:hover{background-color: #FEAF96; color: #2A343D;}';
+            // nextBtn.styleSheet.cssText = cssStyle;
         }
     },1000);
     currentIdx = num;
@@ -63,7 +62,6 @@ window.onresize = function(){
     newlist.style.left = `${-currentIdx * newlistsWidth}px`;
     check = true;
 }
-
 //진행바 DOM 요소
 const circles = document.querySelectorAll(".circle"),
     progressBar = document.querySelector(".indicator"),
@@ -82,21 +80,66 @@ const upsateSteps = (e) => {
 };
 button.addEventListener("click", upsateSteps);
 
-// 주문목록 드롭다운
-function myFunction(event) {
-    event.preventDefault();
-    document.getElementById("myDropdown1").classList.toggle("show");
-}
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn2')) {
+//결제 API
+var IMP = window.IMP; // 생략 가능
+    IMP.init("imp85415064"); // 예: imp00000000
 
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
+//결제건에 대한 정보 변수 설정
+let productName = document.querySelector('.dropbtn2').innerText;
+let price = document.querySelector('.paySum').innerText,
+    allPrice = '';
+for(let i = 0; i<price.length; i++){
+    if(price[i] == ' '){
+        allPrice = parseInt(allPrice);
+        break;
     }
-  }
+    if(price[i] == ','){
+        continue;
+    }
+    allPrice = allPrice.concat(price[i]);
 }
+let address = document.querySelectorAll('.second p'),
+    allAddress = address[0].innerText+' '+address[1].innerText;
+
+document.querySelector('.inicis_pay').onclick = function requestPay() {
+    // IMP.request_pay(param, callback) 결제창 호출
+    IMP.request_pay({ // param
+        pg: "html5_inicis",
+        pay_method: "card",
+        merchant_uid: "ORD20180131-0000011",
+        name: `${productName}`,
+        amount: allPrice,
+        buyer_email: "gildong@gmail.com",
+        buyer_name: "홍길동",
+        buyer_tel: "010-4242-4242",
+        buyer_addr: `${allAddress}`,
+        buyer_postcode: "01181"
+    }, function (rsp) { // callback
+        if (rsp.success) {
+
+        } else {
+
+        }
+    });
+  }
+$(".kakao_pay").click(function(){
+    IMP.request_pay({ // param
+        pg: "kakaopay",
+        pay_method: "card",
+        merchant_uid: "ORD20180131-0000011",
+        name: "노르웨이 회전 의자",
+        amount: 1,
+        buyer_email: "gildong@gmail.com",
+        buyer_name: "홍길동",
+        buyer_tel: "010-4242-4242",
+        buyer_addr: "서울특별시 강남구 신사동",
+        buyer_postcode: "01181"
+    }, function (rsp) { // callback
+        if (rsp.success) {
+
+        }
+        else {
+
+        }
+    })
+});
