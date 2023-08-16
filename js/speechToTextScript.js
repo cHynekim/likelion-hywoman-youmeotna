@@ -10,8 +10,9 @@ againBtn.onclick = function(){
 let submitBtn = document.querySelector('.submitBtn');
 submitBtn.onclick = function(){
     let context = document.querySelector('.output').innerText;
+    console.log(context);
     document.querySelector('#modal').classList.add('hide');
-    document.querySelector('.search input').value = context;
+    document.querySelector('.searchBar').value = context;
     document.querySelector('.output').innerText = "";
 }
 

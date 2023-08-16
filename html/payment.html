@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GomPay</title>
     <link rel="stylesheet" href="../css/paymentStyle.css" type="text/css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
     <script src="../js/paymentScript.js" defer type="text/javascript"></script>
 </head>
 <body>
@@ -14,36 +16,150 @@
         </header>
         <main>
             <section class="statusBar">
-                <!--진행바-->
+                <div class="steps">
+                    <div class="circle active">1</div>
+                    <div class="circle">2</div>
+                    <div class="circle">3</div>
+                    <div class="circle">4</div>
+                    <div class="circle">5</div>
+
+                    <div class="progress-bar">
+                        <span class="indicator"></span>
+                    </div>
+                </div>
             </section>
             <section class="paymentList">
                 <!--결제 과정-->
                 <ul>
                     <li class="process">
-                        <span>process1</span>
-                        <div>결제 과정1</div>
+                        <span>배송지 입력</span>
+                        <form class="mainBox">
+                            <div class="first">
+                                <p class="bigText">딸 자취방</p>
+                                <button>기본배송지</button>
+                            </div>
+                            <div class="second">
+                                <p>서울특별시 성동구 살곶이길 200</p>
+                                <p>101동 203호</p>
+                            </div> 
+                            <div class="third">
+                                <label for="mentOp">배송시 요청사항</label>
+                                <select class="dropdown" name="ment" id="mentOp">
+                                    <option value="door">문 앞에 놓고 가주세요</option>
+                                    <option value="box">무인택배함에 넣어주세요</option>
+                                    <option value="fontmen">경비실에 맡겨주세요</option>
+                                </select>
+                            </div>
+                        </form>
                     </li>
                     <li class="process">
-                        <span>process2</span>
-                        <div>결제 과정2</div>
+                        <span>주문목록</span>
+                        <form action="#" class="pr2">
+                            <div class="dropdown2">
+                                <div class="wrap">
+                                    <button onclick="myFunction(event)" class="dropbtn2">
+                                    유기농 포도 외 3건  <img src="../image/Group 8797.png" alt="">
+                                    </button>
+                                    <div id="myDropdown1" class="dropdown-content">
+                                        <div class="product">
+                                            <img src="../image/product_grape.jpg" alt="">
+                                            <a href="#">
+                                                <p>유기농 포도</p>
+                                                <p>1 개</p>
+                                                <p>4,500원</p>
+                                            </a>
+                                        </div>
+                                        <div class="product">
+                                            <img src="../image/product_grape.jpg" alt="">
+                                            <a href="#">
+                                                <p>고당도 꿀 수박</p>
+                                                <p>1 개</p>
+                                                <p>4,500원</p>
+                                            </a>
+                                        </div>
+                                        <div class="product">
+                                            <img src="../image/product_grape.jpg" alt="">
+                                            <a href="#">
+                                                <p>이중미세모 칫솔</p>
+                                                <p>1 개</p>
+                                                <p>4,500원</p>
+                                            </a>
+                                        </div>
+                                        <div class="product">
+                                            <img src="../image/product_grape.jpg" alt="">
+                                            <a href="#">
+                                                <p>친환경 감자 800g</p>
+                                                <p>1 개</p>
+                                                <p>4,500원</p>
+                                            </a>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                
+                            </div>
+                        </form>
+
+                        
                     </li>
                     <li class="process">
-                        <span>process3</span>
-                        <div>결제 과정3</div>
+                        <span>결제 금액 확인</span>
+                        <div class="checkSum">
+                            <span>총 결제 금액</span>
+                            <!--백엔드에서 데이터 연결 후 받아온 데이터로 js 작업-->
+                            <!--임시-->
+                            <span class="paySum"></span>    
+                        </div>
                     </li>
                     <li class="process">
-                        <span>process4</span>
-                        <div>결제 과정4</div>
+                        <span>개인정보 동의</span>
+                        <div class="payAgree">
+                            <span>주문 상품정보, 배송지 등의 개인정보 및 전자결제 서비스<br>이용약관에 모두 동의합니다.</span>
+                            <span>상기 내용 동의 하에 서비스 이용이 가능합니다.</span>
+                            <label>
+                                <input type="checkbox">
+                                동의합니다.
+                            </label>
+                        </div>
                     </li>
                     <li class="process">
-                        <span>process5</span>
-                        <div>결제 과정5</div>
+                        <span>결제하기</span>
+                        <div>
+                            <form class="order-form">
+                                <button class="inicis_pay" type="submit">
+                                    카드 일반 결제
+                                </button>
+                                <button class="kakao_pay" type="submit">
+                                    카카오 간편 결제
+                                </button>
+                            </form>
+                        </div>
                     </li>
                 </ul>
             </section>
             <!--Next Btn-->
-            <button type="button" class="nextBtn">다음으로</button>
+            <button type="button" class="nextBtn" id="next">다음으로</button>
         </main>
+        <div id="success-modal" class="hidden">
+            <div class="modal-title">
+                <img src="../image/party-popper.png">
+                <span>주문 성공!</span>
+            </div>
+            <div class="content">
+                <div class="slide">
+                    <ul class="list">
+                        <li>유기농 포도</li>
+                        <li>이중미세모 칫솔</li>
+                        <li>고당도 꿀 수박</li>
+                        <li>친환경 감자 800g</li>
+                    </ul>
+                    <img src="../image/grad.png">
+                </div>
+                위 상품이 곧 배달될 거에요
+            </div>
+            <a href="#">
+                <button type="submit">확 인</button>
+            </a>
+        </div>
     </div>
 </body>
 </html>

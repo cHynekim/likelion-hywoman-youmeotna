@@ -1,0 +1,261 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'HakgyoansimWoojuR';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,body {
+  font-family: 'HakgyoansimWoojuR';
+  width: 100%;
+  height: 100%;
+  color: #2A343D;
+}
+
+/*상단 로고*/
+.logo{
+  display: block;
+  margin: 0 auto;
+}
+
+.bigContainer{
+  background-color: #FFDEDE;
+  border-radius: 50px;
+  border: #FFF1DB solid 7px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 설정 */
+
+}
+
+/*인사*/
+.hello{
+  display: flex;
+  justify-content: center;
+  font-size: 200%;
+}
+
+.userInform{
+  padding-top: 4%;
+}
+
+/*상단 회원정보 텍스트*/
+.userInform b{
+  font-size: 200%;
+  border: #fff solid 11px;
+  border-radius: 50px;
+  padding: 2%;
+  padding-left: 10%;
+  padding-right: 10%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 설정 */
+}
+
+.userInform p{
+  display: flex;
+  justify-content: center;
+}
+
+/*유저 개인정보*/
+.nickname, .birthday, .logout, .commentOutput, .comment1, .comment2{
+  display: flex;
+  justify-content: center;
+}
+
+.nickname, .birthday, .address{
+  font-size: 160%;
+}
+
+.birthday{
+  margin-bottom: 1%;
+}
+
+.nickname{
+  position: relative;
+  margin-top: 1%;
+}
+
+.commentOutput, .comment1, .comment2{
+  font-size: 130%;
+}
+
+.commentOutput p{
+  font-weight: bold;
+}
+
+.comment1, .comment2{
+  position: relative;
+}
+
+.comment1Text ,.comment2Text{
+  position: relative;
+  right: 20%;
+}
+
+.comment1Date, .commen2Date{
+  position: relative;
+  left: 20%;
+}
+
+/*로그아웃*/
+.logout{
+  margin-bottom: 5%;
+  position: relative;
+  top: 30px;
+}
+
+.logout button{
+  background-color: #FFDEDE;
+  cursor: pointer;
+  border: none;
+  padding: 1%;
+  font-size: 140%;
+  font-family: 'HakgyoansimWoojuR';
+}
+
+.logout button:hover {
+  color: white; 
+}
+
+/*댓글 타이틀*/
+.commentTitle {
+  font-size: 200%;
+  border: #fff solid 11px;
+  border-radius: 50px;
+  padding: 2%;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 설정 */
+  margin-bottom: 5%;
+  margin-top: 3%;
+}
+
+/* 첫 번째 상품 첫 번쨰 줄*/
+.box1 {
+  display: flex;
+  align-items: center; /* 같은줄에 가로로 있게해줌 */
+  position: relative; 
+  left: 15%;
+  width: 85%;
+  margin-top: 5%;
+}
+
+.box1Text p{
+  position: relative;
+  left: 40%;
+}
+
+.box1Date{
+  position: relative;
+  left: 45%;
+  font-size: 140%;
+}
+
+.box1Image {
+  margin-right: 10px; /* 이미지와 텍스트 사이 간격 */
+  border: #2A343D dotted 1px;
+}
+
+.box1Image img {
+  width: 150px; 
+}
+
+.box1Text {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+/* 첫 번째 상품 두 번쨰 줄*/
+.box2{
+  position: relative;
+  left: 16%;
+  margin-top: 3%;
+  font-size: 140%;
+  width: 84%;
+}
+
+/* 첫 번째 상품 세 번쨰 줄*/
+.box3{
+  position: relative;
+  display: flex;
+  width: 80%;
+  left: 10%;
+  font-size: 140%;
+}
+
+/* 두 번째 상품 첫 번쨰 줄*/
+.box4 {
+  display: flex;
+  align-items: center; /* 같은줄에 가로로 있게해줌 */
+  position: relative; 
+  left: 15%;
+  width: 85%;
+  margin-top: 5%;
+}
+
+.box4Text p{
+  position: relative;
+  left: 40%;
+}
+
+.box4Date{
+  position: relative;
+  left: 45%;
+  font-size: 140%;
+}
+
+.box4Image {
+  margin-right: 10px; /* 이미지와 텍스트 사이 간격 */
+  border: #2A343D dotted 1px;
+}
+
+.box4Image img {
+  width: 150px; 
+}
+
+.box4Text {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+/* 두 번째 상품 두 번쨰 줄*/
+.box5{
+  position: relative;
+  left: 16%;
+  margin-top: 3%;
+  font-size: 140%;
+  width: 84%;
+}
+
+/* 두 번째 상품 세 번쨰 줄*/
+.box6{
+  position: relative;
+  display: flex;
+  width: 80%;
+  left: 10%;
+  font-size: 140%;
+}
+
+/*상품 구분선*/
+.product1, .product2 {
+  border-top: #2A343D dotted 1px;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 작성한 댓글 목록에서의 링크 스타일 추가 */
+.commentBigBox a:link,
+.commentBigBox a:visited,
+.commentBigBox a:hover,
+.commentBigBox a:active {
+  color: #2A343D; /* 링크 색상 변경 */
+  text-decoration: none; /* 밑줄 제거 */
+}
+
