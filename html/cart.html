@@ -10,20 +10,24 @@
 </head>
 <body>
   <!--검색창, 로고-->
-  <img src="../image/delete.png" width="5px" class="logo"><!--로고-->
+  <header> <!--헤더, 로고-->
+    <a href="#">
+        <img src="../image/logo.png" alt="logo">
+    </a>
+</header>
   <div class="search"> <!--검색창-->
     <form>
-        <input type="text" placeholder="검색할 상품을 입력해주세요"> <!--입력-->
+        <input class="searchBar" type="text" placeholder="검색할 상품을 입력해주세요"> <!--입력-->
         <div class="btn">
             <button type="submit"> <!--확인btn-->
-                <img src="../image/검색.png">
+                <img src="../image/searchSubmit.png">
             </button>
-            <button type="button">
-                <img src="../image/Star 2.png" alt="mic">
+            <button type="button" class="sttTrigger">
+                <img src="../image/mic.png" alt="mic">
             </button>
         </div>
-    </form>            
-  </div>
+    </form>
+</div>    
   <!--메인부분-->
   <div class="title">
     <p>장바구니</p>

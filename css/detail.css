@@ -38,29 +38,29 @@ body{
 
     font-size: 1.5rem;
     font-weight: bold;
-
 }
-.glass{
+.header > p{
+    width: 80%;
+    position: relative;
+    left: 48%;
+}
+.searchBtn{
+    width: 20%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    width: 15%;
+    align-items: center;
+}
+.searchBtn > a{
+    width: 50%;
     height: 50%;
-}
-.plus{
-    border-radius: 10px 0 0 10px;
-    background-color: #ffeeee;
-    border: 0.8px solid gray;
-    width: 100%;
-    font-size: 1.2rem;
-}
-.minus{
-    border-radius: 0 10px 10px 0;
     background-color: rgb(255, 184, 160);
-    border: 0.8px solid gray;
-    width: 100%;
-    font-size: 1.2rem;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
 }
 /* 상품 이미지 */
 .m-img{
@@ -89,7 +89,7 @@ body{
     align-items: center;
 }
 .star{
-    width: 35%;
+    width: 300px;
     height: 60px;
     position: relative;
     left: 20px;

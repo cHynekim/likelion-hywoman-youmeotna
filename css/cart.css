@@ -21,63 +21,92 @@ html,body {
 }
 
 /*검색창,로고*/
-.logo{
-  display: flex;
-}
-.search{
-  width: 100%;
-  height: 10%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-.search form{
-  width: 100%;
-  height: 70%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.search form input{
-  width: 75%;
-  height: 90%;
-  padding-left: 15px;
-  border: 2px solid #FDAF96;
-  border-radius: 20px;
-  font-size: 0.6em;
-}
-.search form .btn{
-  width: 20%;
-  height: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.btn button{
-  background-color: #FDAF96;
-  border: none;
-  border-radius: 3px;
-  width: 45%;
-  height: 100%;
-  position: relative;
-  cursor: pointer;
-}
-.btn button:nth-of-type(2){
-  background-color: #FFF1DB;
-}
-.btn button img{
-  width: 70%;
-  max-width: 30px;
-  object-fit: cover;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
+.logo{
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: 10%;
+  }
+  header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  /*header, logo*/
+  header a{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  header img{
+    height: 100%;
+  }
+  
+  .search{
+    width: 100%;
+    height: 10%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .search form{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .search form input{
+    width: 75%;
+    height: 90%;
+    padding-left: 15px;
+    border: 2px solid #FDAF96;
+    border-radius: 20px;
+    font-size: 0.6em;
+  }
+  
+  .search form .btn{
+    width: 20%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .btn button{
+    background-color: #FDAF96;
+    border: none;
+    border-radius: 3px;
+    width: 45%;
+    max-width: 100px;
+    height: auto;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .btn button:nth-of-type(2){
+    background-color: #FFF1DB;
+  }
+  
+  .btn button img{
+    width: 50%;
+    height: auto;
+    max-width: 30px;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
 /*메인부분*/
 .title{
     display: flex;
@@ -313,7 +342,7 @@ input{
     justify-content: center;
     margin: 20px 0;
     position: relative;
-    left: 85%;
+    left: 82%;
 }
 
 @media screen and (max-width:576px) {
@@ -331,17 +360,13 @@ input{
 
     .basketdiv .pname{
         width: 60%;
-        /* background-color: #0075ff; */
-
     }
     .basketdiv .basketprice {
         width: 30%;
-        /* background-color: #9f9fbe; */
     }
     .basketdiv .num {
         width: 30%;
       min-width: 105px;
-      /* background-color: #d3e2c6; */
     }
     .basketdiv .sum {
         width: 30%;
@@ -366,13 +391,11 @@ input{
         width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
     }
     body{
         width: 70%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
     }
 }
