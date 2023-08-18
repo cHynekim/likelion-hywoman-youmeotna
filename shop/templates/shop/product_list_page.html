@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상품 목록 페이지</title>
+  <link rel="stylesheet" href="{% static 'css/product_list_page.css' %}">
+    <link href="{% static 'css/schStyle.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/speechToTextStyle.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/speechToTextScript.js' %}" defer type="text/javascript"></script>
+    <script src="{% static 'js/schScript.js' %}" defer type="text/javascript"></script>
+
+</head>
+<body>
+{% block content %}
+  <!--상단 검색바, 로고-->
+  <a href="{% url 'shop:main' %}"><img src="{% static 'image/logo.png' %}" class="logo" width="300px"></a>
+  <div class="search">
+      <!--검색창-->
+    <form method="get" action="{% url 'search:searchResult' %}">
+      {% csrf_token %}
+        <input type="text" placeholder="{% if query %}{{ query }}{% else %}검색어를 입력하세요.{% endif %}" aria-label="Search" name="q"> <!--입력-->
+        <div class="btn">
+            <button type="submit"> <!--확인btn-->
+                <img src="{% static 'image/searchSubmit.png' %}">
+            </button>
+            <button type="button" class="sttBtn">
+                <img src="{% static 'image/mic.png' %}" alt="mic">
+            </button>
+        </div>
+    </form>
+  </div>
+  <!--카테고리 버튼 3개-->
+  <div class="btn_container">
+    <div class="popularity">
+      <form method="get">
+        {% csrf_token %}
+        <a href="{% url 'search:searchResult' %}?q={{ query }}&sort=popularity">
+          <button type="button">인기 많은순</button>
+        </a>
+      </form>
+    </div>
+    <div class="fastest">
+      <form method="get">
+        {% csrf_token %}
+        <a href="{% url 'search:searchResult' %}?q={{ query }}&sort=fastest">
+          <button type="button">배송 빠른순</button>
+        </a>
+      </form>
+    </div>
+    <div class="cheap">
+      <form method="get">
+        {% csrf_token %}
+        <a href="{% url 'search:searchResult' %}?q={{ query }}&sort=cheap">
+          <button type="button">가격 낮은순</button>
+        </a>
+      </form>
+    </div>
+  </div>
+  <!--상품 이미지, 소개-->
+  <div class="product_container">
+     {% for product in products %}
+    <!--1번째 상품-->
+    <div class="product_1">
+          <form method="post" action="{% url 'favorites:list_favorite' product.id %}">
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+        <button type="submit" class="star">
+            {% if user in product.favorite_products.all %}
+                <img src="{% static 'image/star.png' %}" class="star">
+            {% else %}
+                 <img src="{% static 'image/unstar.png' %}" class="star">
+            {% endif %}
+        </button>
+    {% else %}
+        <a href="{% url 'accounts:login' %}"><img src="{% static 'image/star.png' %}" class="star"></a></p>
+    {% endif %}
+</form>
+        </button>
+      </form>
+      <a href="{{product.get_absolute_url}}"><img src="{{product.image.url}}" width="150px"></a>
+      <b><a href="{{product.get_absolute_url}}">{{ product.name }}</a></b>
+      <a href="{{product.get_absolute_url}}">{{ product.price }}</a>
+        </div>
+     {% empty %}
+        <a>검색 결과가 없습니다.</a>
+    {% endfor %}
+<!--    2번째 상품 -->
+<!--    <div class="product_2">-->
+<!--      <img src="">-->
+<!--      <form>-->
+<!--        {% csrf_token %}-->
+<!--        <button type="button">-->
+<!--          <img src="{% static 'image/star.png' %}" class="star">-->
+<!--        </button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;3번째 상품&ndash;&gt;-->
+<!--    <div class="product_3">-->
+<!--      <img src="">-->
+<!--      <form>-->
+<!--        {% csrf_token %}-->
+<!--        <button type="button">-->
+<!--          <img src="{% static 'image/star.png' %}" class="star">-->
+<!--        </button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;4번째 상품&ndash;&gt;-->
+<!--    <div class="product_4">-->
+<!--      <img src="">-->
+<!--      <form>-->
+<!--        {% csrf_token %}-->
+<!--      <button type="button">-->
+<!--        <img src="{% static 'image/star.png' %}" class="star">-->
+<!--      </button>-->
+<!--      </form>-->
+<!--    </div>-->
+  </div>
+    <!--하단 버튼 두개-->
+  <div class="to_btncontainer">
+    <div class="toBookmark_btn">
+      <a href="{% url 'favorites:favorite_products' %}">
+        <button>
+          즐겨찾기 가기
+        </button>
+      </a>
+    </div>
+    <div class="toCart_btn">
+      <a href="{% url 'cart:cart' %}">
+        <button>
+          장바구니 가기
+        </button>
+      </a>
+    </div>
+  </div>
+</body>
+{% endblock %}
+</html>

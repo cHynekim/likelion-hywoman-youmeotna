@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Page(임시)</title>
+</head>
+<body>
+{% for user in users %}
+
+<h1>{{ user.phonenum }} 회원님, 환영합니다!</h1>
+<a href="{% url 'shop:main' %}">HOME</a>
+<p></p>
+<p>닉네임</p> : {{ user.nickname }}
+<p>생일</p> : {{ user.birthY }} 년 {{ user.birthM }} 월 {{ user.birthD }} 일
+<p></p>
+  <a href="{% url 'accounts:logout' %}">로그아웃</a>
+  {% endfor %}
+
+<h3>작성한 리뷰 목록</h3>
+<!-- back: 누르면 해당 product detail로 넘어가게 추후에 설정 -->
+  {% for comment in user_comments %}
+    <li>{{ comment.text }} - {{ comment.created_at }}
+        - 별점: {{ comment.get_rating_display }}</li></li>
+  {% empty %}
+    <li>작성하신 리뷰가 없습니다.</li>
+<a href="#"> </a>
+        <p></p>
+    {% endfor %}
+</body>
+</html>

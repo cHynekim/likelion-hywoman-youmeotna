@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>댓글, 별점 페이지</title>
+  <link rel="stylesheet" href="{% static 'css/comment.css' %}">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{% static 'js/comment.js' %}"></script>
+
+  <style>
+
+  .rating-stars {
+  display: flex;
+  gap: 5px; /* 이미지 간격 조절 */
+  align-items: center; /* 이미지들을 수직 가운데 정렬 */
+  justify-content: center; /* 이미지들을 수평 가운데 정렬 */
+}
+
+  .rating-stars input[type="radio"] {
+    display: none;
+  }
+
+  .rating-stars label {
+  display: inline-block;
+  margin: 0;
+}
+
+  .rating-stars img {
+  width: 30%;
+  gap: 5px;
+  }
+
+  </style>
+
+  {% block content %}
+
+</head>
+<body>
+  <!--로고-->
+  <div class="logo">
+    <a href="{% url 'shop:main' %}"><img src="{% static 'image/logo.png' %}" width="400px"></a>
+  </div>
+  <!--별점 및 댓글 텍스트-->
+  <div class="title">
+    <p><b>수정하기</b></p>
+  </div>
+  <!--별점 줄 상품-->
+  <div class="productContainer">
+    <div class="image">
+     <img src="{{ product.image.url }}" width="250px">
+    </div>
+    <div class="text">
+      <p>{{ product.name }}</p>
+      <p>2개</p>
+    </div>
+  </div>
+  <!--메인 박스-->
+  <form method="post" action="{% url 'comment:edit' comment.id %}">
+  <div class="bigContainer">
+    <!--별점-->
+  {% csrf_token %}
+    <div class="starContainer">
+ <div class="rating-stars">
+    <span class="star" data-value="1">
+        {% if comment.rating >= 1 %}
+            <img src="{% static 'image/star.png' %}" class="star1">
+        {% else %}
+            <img src="{% static 'image/unstar.png' %}" class="star1">
+        {% endif %}
+    </span>
+    <span class="star" data-value="2">
+        {% if comment.rating >= 2 %}
+            <img src="{% static 'image/star.png' %}" class="star2">
+        {% else %}
+            <img src="{% static 'image/unstar.png' %}" class="star2">
+        {% endif %}
+    </span>
+    <span class="star" data-value="3">
+        {% if comment.rating >= 3 %}
+            <img src="{% static 'image/star.png' %}" class="star3">
+        {% else %}
+            <img src="{% static 'image/unstar.png' %}" class="star3">
+        {% endif %}
+    </span>
+    <span class="star" data-value="4">
+        {% if comment.rating >= 4 %}
+            <img src="{% static 'image/star.png' %}" class="star4">
+        {% else %}
+            <img src="{% static 'image/unstar.png' %}" class="star4">
+        {% endif %}
+    </span>
+    <span class="star" data-value="5">
+        {% if comment.rating >= 5 %}
+            <img src="{% static 'image/star.png' %}" class="star5">
+        {% else %}
+            <img src="{% static 'image/unstar.png' %}" class="star5">
+        {% endif %}
+    </span>
+</div>
+</div>
+
+
+    <!--댓글-->
+    <div class="comment" >
+      <div class="textAreaContainer">
+        <textarea id="textBox" name="text" style="height:300px; resize: none;" maxlength="200" placeholder="텍스트를 입력하세요.">{{ comment.text }}</textarea>
+      </div>
+        <div class="textLengthWrap">
+        <p class="textCount">0자</p>
+        <p class="textTotal">/200자</p>
+      </div>
+    </div>
+  </div>
+     <input type="hidden" name="rating" id="ratingInput" value="0">
+     <!--제출하는 버튼-->
+    <div class="submitContainer">
+      <button type="submit">수정 완료</button>
+    </div>
+    </form>
+  {% endblock %}
+</body>
+</html>

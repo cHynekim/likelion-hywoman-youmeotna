@@ -1,0 +1,280 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'HakgyoansimWoojuR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 전체 태그들의 마진, 패딩 초기화 및 글꼴 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'HakgyoansimWoojuR';
+    font-size: 22px;
+    color: #2A343D;
+}
+
+html,body {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+/* 검색창,로고 */
+.logo{
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  height: 10%;
+}
+header{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+/*header, logo*/
+header a{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+header img{
+  height: 100%;
+}
+
+.search{
+  width: 100%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.search form{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search form input{
+  width: 75%;
+  height: 90%;
+  padding-left: 15px;
+  border: 2px solid #FDAF96;
+  border-radius: 20px;
+  font-size: 0.6em;
+}
+
+.search form .btn{
+  width: 20%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.btn button{
+  background-color: #FDAF96;
+  border: none;
+  border-radius: 3px;
+  width: 45%;
+  max-width: 100px;
+  height: auto;
+  position: relative;
+  cursor: pointer;
+}
+
+.btn button:nth-of-type(2){
+  background-color: #FFF1DB;
+}
+
+.btn button img{
+  width: 50%;
+  height: auto;
+  max-width: 30px;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 메인부분 */
+.basketdiv {
+  width: 100%;
+  border-top: 1px solid #e0e0e0;
+  float: left;
+  font-size: 0.9375em;
+  margin-bottom: 20px;
+}
+
+/*상품 구분선*/
+.basketdiv .data {
+  border-bottom: 1px dashed #888;
+  box-sizing: border-box;
+  cursor: pointer;
+  float: left;
+  width: 100%;
+}
+
+.basketdiv .data .empty{
+  text-align: center;
+  padding: 12px 0;
+}
+
+.basketdiv .row.head .subdiv {
+  background-color: #FFDEDE;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 설정 */
+}
+
+.basketdiv .row > .subdiv {
+  display: block;
+  float: left;
+}
+.basketdiv .row > .subdiv:nth-child(1) {
+  width: 50%;
+
+}
+
+.basketdiv .row > .subdiv:nth-child(2) {
+  width: 40%;
+}
+
+.basketdiv .row > .subdiv:nth-child(3) {
+  width: 10%;
+}
+
+.basketdiv .row.head .subdiv:nth-child(1) .pname{
+position: relative;
+left: 20%;
+}
+
+.basketdiv .row > div > div {
+  display: block;
+  float: left;
+  text-align: center;
+  margin: 0;
+  padding: 12px 0;
+}
+.basketdiv .row.data{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.basketdiv .row.data > div > div {
+  height: auto;
+  line-height: 30px;
+}
+
+.basketdiv .img{
+  width: 20%;
+}
+
+.basketdiv .pname{
+  width: 70%;
+
+}
+.pname > a {
+  height: auto;
+
+}
+.basketdiv .basketprice {
+  width: 30%;
+}
+
+.abutton:link, .abutton:visited, .abutton:active {
+  background-color: #FFF1DB;
+  border: 1px solid #888888;
+  color: #2A343D;
+  cursor: pointer;
+  letter-spacing: -1px;
+  padding: 3px 5px;
+  margin: 2px 3px;
+  width: auto;
+  word-break: keep-all;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9375em;
+}
+
+.product-link {
+  color: #2A343D;
+  text-decoration: none;
+}
+
+.product-link:hover {
+  text-decoration: none; /* 커서가 올라갔을 때 밑줄 제거 */
+
+}
+@media screen and (max-width:576px) {
+  .orderForm{
+
+      width:100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-self: center;
+      align-items: center;
+
+  }
+
+  .basketdiv .pname{
+      width: 60%;
+      height: auto;
+      /* background-color: #0075ff; */
+
+  }
+  .basketdiv .basketprice {
+      width: 30%;
+      /* background-color: #9f9fbe; */
+  }
+  .basketdiv .num {
+      width: 30%;
+    min-width: 105px;
+    /* background-color: #d3e2c6; */
+  }
+  .basketdiv .sum {
+      width: 30%;
+    max-width: 80px;
+      color: #025fc9;
+  }
+
+  .basketdiv .row > .subdiv:nth-child(1) {
+      width: 35%;
+  }
+
+
+  .basketdiv .row > .subdiv:nth-child(2) {
+      width: 55%;
+  }
+  .basketdiv .row > .subdiv:nth-child(3) {
+      width: 10%;
+  }
+  .pname{
+    height: auto;
+  }
+}
+@media screen and (min-width:1200px){
+  html{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  body{
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+
+  }
+}
