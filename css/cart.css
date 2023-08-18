@@ -14,7 +14,7 @@
 }
 
 html,body {
-  
+
   width: 100%;
   height: 100%;
   background-color: #fff;
@@ -101,7 +101,6 @@ html,body {
 }
 .basketdiv {
     width: 100%;
-    height: auto;
     border-top: 1px solid #e0e0e0;
     float: left;
 
@@ -117,8 +116,6 @@ html,body {
         cursor: pointer;
         float: left;
         width: 100%;
-        height: 80px;
-        background-color: #FDAF96;
     }
     .basketdiv .data .empty{
         text-align: center;
@@ -147,8 +144,8 @@ html,body {
         margin: 0;
         padding: 12px 0;
     }
-    .basketdiv .row.data div {
-        height: 90px;
+    .basketdiv .row.data > div > div {
+        height: 60px;
         line-height: 60px;
         display: flex;
         flex-direction: row;
@@ -178,12 +175,12 @@ html,body {
     }
     .basketdiv .num {
         width: 33%;
-        min-width: 105px;
+      min-width: 105px;
       /* background-color: #d3e2c6; */
     }
     .basketdiv .sum {
         width: 30%;
-        max-width: 80px;
+      max-width: 80px;
         color: #025fc9;
     }
 
@@ -192,7 +189,7 @@ html,body {
     }
     .basketdiv .data .pname {
         text-align: left !important;
-        line-height: 1.2 !important;
+      line-height: 1.2 !important;
     }
     .basketdiv .data .price, .basketdiv .data .sum, .basketdiv .data .point {
         text-align: right;
@@ -222,13 +219,11 @@ html,body {
         }
 
     .abutton, .abutton:link, .abutton:visited, .abutton:active, input[type=button] {
-        background-color: #949494;
-        color: #ffffff;
+        background-color: #FFF1DB;
+        color: #000000;
         cursor: pointer;
         letter-spacing: -1px;
-        padding: 5px 10px; 
-        width: 50%;
-        height: 50%;
+        padding: 5px 10px;
         word-break: keep-all;
         border-radius: 5px;
         text-decoration: none;
@@ -241,6 +236,8 @@ html,body {
     justify-content: center;
     background-color:#d0d0d0 ;
     color: #000;
+    width: 30%;
+    height : 50%;
 }
 
 .abutton-alt {
@@ -296,7 +293,7 @@ input{
     width: 400px;
     height: 65px;
     margin-top: 10px;
-    border: 0.5px solid gray;
+    border-style: none;
     background-color: #FDAF96;
     letter-spacing: 3px;
     border-radius: 8px;
@@ -308,7 +305,7 @@ input{
 
         width:100%;
         height: 100%;
-        
+
         display: flex;
         flex-direction: column;
         justify-self: center;
@@ -339,6 +336,7 @@ input{
     .basketdiv .row > .subdiv:nth-child(1) {
         width: 35%;
     }
+
 
     .basketdiv .row > .subdiv:nth-child(2) {
         width: 55%;
