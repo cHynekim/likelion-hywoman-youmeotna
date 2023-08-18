@@ -1,43 +1,19 @@
 <!DOCTYPE html>
 {% load static %}
+{% load humanize %}
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상세페이지</title>
     <link rel="stylesheet" href="{% static 'css/detail.css' %}">
-
-    <style>
-
-  .stars {
-  display: flex;
-  gap: 5px; /* 이미지 간격 조절 */
-  align-items: center; /* 이미지들을 수직 가운데 정렬 */
-  justify-content: center; /* 이미지들을 수평 가운데 정렬 */
-}
-
-  .stars label {
-  display: inline-block;
-  margin: 0;
-}
-
-  .stars img {
-  width: 20%;
-  gap: 5px;
-  }
-
-  </style>
 </head>
 <body>
 {% block content %}
     <header class="header">
-        <div class="glass">
-            <button class="plus" id="plus">+</button>
-            <button class="minus" id="minus">-</button>
-        </div>
-
         <p>{{product.name}}</p>
-
-        <a href="{% url 'shop:main' %}" class="searchBtn"><img src="{% static 'image/searchSubmit.png' %}" alt=""></a>
+        <a href="{% url 'shop:main' %}" class="searchBtn">
+            <img src="{% static 'image/searchSubmit.png' %}" alt="">
+        </a>
 
     </header>
     <!--상품 이미지 -->

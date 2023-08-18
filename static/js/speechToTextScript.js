@@ -9,6 +9,7 @@ againBtn.onclick = function(){
 }
 let submitBtn = document.querySelector('.submitBtn');
 submitBtn.onclick = function(){
+console.log('!');
     let context = document.querySelector('.output').innerText;
     console.log(context);
     document.querySelector('#modal').classList.add('hide');

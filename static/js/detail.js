@@ -25,7 +25,6 @@ function count(type){
 
     if(type === 'minus'){
         if(parseInt(number -1) < 0 || parseInt(number) >99){
-            alert('하어');
             return; //확인누르면 0으로
         }
         number = parseInt(number) - 1;

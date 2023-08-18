@@ -10,11 +10,25 @@
     <script src="https://kit.fontawesome.com/d1a3d01a0c.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="{% static 'css/schStyle.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/speechToTextStyle.css' %}" rel="stylesheet" type="text/css">
     <script src="{% static 'js/schScript.js' %}" defer type="text/javascript"></script>
-
+    <script src="{% static 'js/speechToTextScript.js' %}" defer type="text/javascript"></script>
 </head>
 <body>
 {% block content %}
+    <!--음성 인식 모달창-->
+    <div id="modal" class="hide">
+        <div class="sttBox">
+            <div class="info">마이크에 대고 찾으려는 상품을 말해보세요!</div>
+            <div class="status"></div>
+            <div class="output"></div>
+            <div class="sttBtn">
+                <button type="button" class="againBtn">다시 말하기</button>
+                <button type="submit" class="submitBtn">완료</button>
+            </div>
+        </div>
+    </div>
+    <!--음성 인식 모달창 끝-->
 <header>
     <a href="{% url 'shop:main' %}">
         <img src="{% static 'image/logo.png' %}" alt="logo">

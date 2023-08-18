@@ -76,7 +76,7 @@
             <div class="search"> <!--검색창-->
                 <form method="get" action="{% url 'search:searchResult' %}">
                     {% csrf_token %}
-                    <input class="searchBar" type="text" placeholder="검색할 상품을 입력해주세요" name="q"> <!--입력-->
+                    <input class="searchBar" type="text" placeholder="검색할 상품을 입력해주세요" name="q" value=""> <!--입력-->
                     <div class="btn">
                         <button type="submit"> <!--확인btn-->
                             <img src="{% static 'image/searchSubmit.png' %}">

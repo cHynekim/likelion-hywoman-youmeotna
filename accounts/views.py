@@ -96,4 +96,4 @@ def userinfo(request, pk):
         'user' : user,
         'user_comments': user_comments,
     }
-    return render(request, 'accounts/setting.html', context=context)
+    return render(request, 'accounts/setting2.html', context=context)

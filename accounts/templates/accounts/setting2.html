@@ -4,15 +4,15 @@
     {% load static %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="{% url 'css/setting.css' %}" rel="stylesheet" type="text/css">
-  <script src="{% url 'js/setting.js' %}" defer type="text/javascript"></script>
+  <link href="{% static 'css/setting.css' %}" rel="stylesheet" type="text/css">
+  <script src="{% static 'js/setting.js' %}" defer type="text/javascript"></script>
   <title>설정</title>
-    {% block contents %}
+    {% block content %}
 </head>
 <body>
   <div id="wrap">
     <header>
-      <a href="{% url 'shop:main' %}"><img src="{% url 'image/logo.png' %}"></a>
+      <a href="{% url 'shop:main' %}"><img src="{% static 'image/logo.png' %}"></a>
     </header>
     <main>
       <div class="info">
@@ -36,49 +36,19 @@
                 <div class="star"></div>
               </div>
               <div class="review-text">
-                오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"
+                {{comment.text}}
               </div>
             </div>
             <a href="#"><button class="modify-btn" type="submit">수정</button></a>
           </li>
-          <li class="list">
-            <div class="review">
-              <span class="review-title">사과</span>
-              <div class="score">
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-              </div>
-              <div class="review-text">
-                오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"
-              </div>
-            </div>
-            <a href="#"><button class="modify-btn" type="submit">수정</button></a>
-          </li>
-          <li class="list">
-            <div class="review">
-              <span class="review-title">사과</span>
-              <div class="score">
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-              </div>
-              <div class="review-text">
-                오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"오류제발멈춰이것이야말로"신노각코이지메"
-              </div>
-            </div>
-            <a href="#"><button class="modify-btn" type="submit">수정</button></a>
-          </li>
+          {% endfor %}
         </ul>
       </div>
     </main>
     <footer>
-      <a href="#"><button type="submit">로그아웃</button></a>
+      <a href="{% url 'accounts:logout' %}"><button type="submit">로그아웃</button></a>
     </footer>
   </div>
+{% endblock %}
 </body>
 </html>

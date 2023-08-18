@@ -1,11 +1,11 @@
 //메인 검색창 클릭 시 포커스 이동
 let searchBar = document.querySelector('.searchBar');
-console.log(searchBar);
 searchBar.onclick = function(){
     let prevInfo = searchBar.value;
-    document.querySelector('.sch_focus').classList.remove('hide');
-    document.querySelector('.focusSearchBar').value = prevInfo;
     document.querySelector('#wrap').classList.add('hide');
+    document.querySelector('.sch_focus').classList.remove('hide');
+    document.querySelector('.sch_focus>.footer').classList.remove('hide');
+    document.querySelector('.focusSearchBar').value = prevInfo;
 }
 //최근 검색 기록을 클릭 시 입력창에 자동 입력
 let history = document.querySelectorAll('.history li');
@@ -17,9 +17,6 @@ for(let i = 0; i<history.length; i++){
         document.querySelector('.focusSearchBar').value = getString;
     }
 }
-
-
-
 //검색 기록 삭제
 let removeHistory = document.querySelector('.remove_history');
 removeHistory.onclick = function(){
