@@ -16,12 +16,17 @@
 html, body{
   width: 100%;
   height: 100%;
+  min-height: 645px;
   background-color: #FDAF96;
 }
 a{
   color: #ecf6ff;
   text-decoration: none;
   display: block;
+}
+a:hover{
+  color: #2A343D;
+  font-weight: bold;
 }
 .hidden{
   display: none;
@@ -75,11 +80,16 @@ form{
   height: 60%;
 }
 .signIn input{
+
   border: none;
   border-bottom: solid 2px #e3e8ed;
   border-radius: 15px;
   background-color: transparent;
   padding: 0 5%;
+  transition: 0.5s;
+}
+.signIn input:focus{
+  transform: scaleX(105%);
 }
 .signIn>input{
   width: 90%;
@@ -94,6 +104,7 @@ form{
   height: 20%;
   margin: 2% auto;
   text-align: center;
+  transition: 0.5s;
 }
 .buttons{
   /* background-color: burlywood; */
@@ -124,4 +135,15 @@ form{
   border: none;
   border-radius: 15px;
   font-size: 1.3em;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.buttons a:nth-of-type(2) button{
+  background-color: #ffe9c6;
+}
+.buttons button:hover{
+  transform: scale(105%);
+}
+.buttons button:active{
+  box-shadow: 1px 1px 2px 2px rgba(100, 100, 100, 0.2) inset;
 }
