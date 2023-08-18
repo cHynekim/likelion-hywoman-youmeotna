@@ -7,255 +7,246 @@
   font-style: normal;
 }
 
-html,body {
+*{
   font-family: 'HakgyoansimWoojuR';
-  width: 100%;
-  height: 100%;
+  color: #2A343D;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+a{
+  display: block;
+  text-decoration: none;
   color: #2A343D;
 }
-
-/*상단 로고*/
-.logo{
-  display: block;
+li{
+  list-style: none;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+}
+#wrap{
   margin: 0 auto;
+  width: 90%;
+  height: 100%;
 }
-
-.bigContainer{
-  background-color: #FFDEDE;
-  border-radius: 50px;
-  border: #FFF1DB solid 7px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 설정 */
-
-}
-
-/*인사*/
-.hello{
-  display: flex;
-  justify-content: center;
-  font-size: 200%;
-}
-
-.userInform{
-  padding-top: 4%;
-}
-
-/*상단 회원정보 텍스트*/
-.userInform b{
-  font-size: 200%;
-  border: #fff solid 11px;
-  border-radius: 50px;
-  padding: 2%;
-  padding-left: 10%;
-  padding-right: 10%;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 설정 */
-}
-
-.userInform p{
+header{
+  width: 100%;
+  height: 10%;
   display: flex;
   justify-content: center;
 }
-
-/*유저 개인정보*/
-.nickname, .birthday, .logout, .commentOutput, .comment1, .comment2{
+header a{
+  height: 100%;
+}
+header a img{
+  height: 100%;
+  text-align: center;
+}
+main{
+  width: 100%;
+  height: 80%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-.nickname, .birthday, .address{
-  font-size: 160%;
-}
-
-.birthday{
-  margin-bottom: 1%;
-}
-
-.nickname{
+main .info{
+  width: 100%;
+  height: 20%;
   position: relative;
-  margin-top: 1%;
 }
-
-.commentOutput, .comment1, .comment2{
-  font-size: 130%;
+.hello{
+  width: 70%;
+  height: 50%;
+  display: block;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #4f5c67;
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
-
-.commentOutput p{
+.hello .nickname{
+  font-size: 1.3em;
   font-weight: bold;
 }
-
-.comment1, .comment2{
-  position: relative;
-}
-
-.comment1Text ,.comment2Text{
-  position: relative;
-  right: 20%;
-}
-
-.comment1Date, .commen2Date{
-  position: relative;
-  left: 20%;
-}
-
-/*로그아웃*/
-.logout{
-  margin-bottom: 5%;
-  position: relative;
-  top: 30px;
-}
-
-.logout button{
-  background-color: #FFDEDE;
+.info-mdf-btn{
+  width: 50%;
+  height: 40%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
   cursor: pointer;
   border: none;
-  padding: 1%;
-  font-size: 140%;
-  font-family: 'HakgyoansimWoojuR';
+  border-radius: 20px;
+  font-size: 1.1em;
+  background-color: #FDAF96;
+  transition: 0.2s;
 }
-
-.logout button:hover {
-  color: white; 
+.info-mdf-btn:hover{
+  filter: drop-shadow(1px 1px 2px #aaa);
 }
-
-/*댓글 타이틀*/
-.commentTitle {
-  font-size: 200%;
-  border: #fff solid 11px;
-  border-radius: 50px;
-  padding: 2%;
+.info-mdf-btn:active{
+  filter: none;
+  background-color: #ed987c;
+  box-shadow: 1px 1px 2px 2px rgba(100, 100, 100, 0.2) inset;
+}
+main .record{
+  width: 100%;
+  height: 80%;
+  position: relative;
+}
+.record>span{
   width: 50%;
-  display: block;
-  margin: 0 auto;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.6em;
+  font-weight: bold;
   text-align: center;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 설정 */
-  margin-bottom: 5%;
-  margin-top: 3%;
+  border-top: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%);
 }
-
-/* 첫 번째 상품 첫 번쨰 줄*/
-.box1 {
-  display: flex;
-  align-items: center; /* 같은줄에 가로로 있게해줌 */
-  position: relative; 
-  left: 15%;
-  width: 85%;
-  margin-top: 5%;
+.record>ul{
+  width: 100%;
+  height: 75%;
+  position: absolute;
+  overflow: auto;
+  bottom: 5%;
 }
-
-.box1Text p{
+.record .list{
+  width: 100%;
+  height: 150px;
   position: relative;
-  left: 40%;
+  border-bottom: solid 1px #f0f0f0;
+  margin-bottom: 15px;
 }
-
-.box1Date{
-  position: relative;
-  left: 45%;
-  font-size: 140%;
+.list .review{
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
-
-.box1Image {
-  margin-right: 10px; /* 이미지와 텍스트 사이 간격 */
-  border: #2A343D dotted 1px;
-}
-
-.box1Image img {
-  width: 150px; 
-}
-
-.box1Text {
-  font-size: 150%;
+.review .review-title{
+  font-size: 1.4em;
   font-weight: bold;
+  position: absolute;
+  top: 10px;
+  left: 2%;
 }
-
-/* 첫 번째 상품 두 번쨰 줄*/
-.box2{
-  position: relative;
-  left: 16%;
-  margin-top: 3%;
-  font-size: 140%;
-  width: 84%;
+.score{
+  width: 200px;
+  height: 25px;
+  /* background-color: #4f5c67; */
+  position: absolute;
+  top: 15px;
+  left: 70px;
 }
-
-/* 첫 번째 상품 세 번쨰 줄*/
-.box3{
+.star {
+  border-radius: 6px;
+  float: left;
   position: relative;
-  display: flex;
+  display: block;
+  color: #ffe74b;
+  width: 0px;
+  height: 0px;
+  border-right: 20px solid transparent;
+  border-bottom: 10px solid #ffe74b;
+  border-left: 20px solid transparent;
+  transform: rotate(35deg);
+}
+.star:before {
+  border-radius: 6px;
+  border-bottom: 20px solid #ffe74b;
+  border-left: 8px solid transparent;
+  border-right: 7px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -12px;
+  left: -12px;
+  display: block;
+  content: '';
+  transform: rotate(-35deg);
+}
+.star:after {
+  border-radius: 6px;
+  position: absolute;
+  display: block;
+  color: #ffe74b;
+  top: 1px;
+  left: -20px;
+  width: 0px;
+  height: 0px;
+  border-right: 20px solid transparent;
+  border-bottom: 10px solid #ffe74b;
+  border-left: 20px solid transparent;
+  transform: rotate(-70deg);
+  content: '';
+}
+.review .review-text{
   width: 80%;
-  left: 10%;
-  font-size: 140%;
+  height: 70%;
+  font-size: 1.1em;
+  line-height: 180%;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
 }
-
-/* 두 번째 상품 첫 번쨰 줄*/
-.box4 {
-  display: flex;
-  align-items: center; /* 같은줄에 가로로 있게해줌 */
-  position: relative; 
-  left: 15%;
-  width: 85%;
-  margin-top: 5%;
+.list .modify-btn{
+  width: 10%;
+  height: 30%;
+  border: none;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  right: 1%;
+  top: 50%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  transition: 0.2s;
 }
-
-.box4Text p{
+.modify-btn:hover{
+  filter: drop-shadow(1px 1px 2px #aaa);
+}
+.modify-btn:active{
+  filter: none;
+  background-color: #dadada;
+  box-shadow: 1px 1px 2px 2px rgba(100, 100, 100, 0.2) inset;
+}
+footer{
+  width: 100%;
+  height: 10%;
   position: relative;
-  left: 40%;
 }
-
-.box4Date{
-  position: relative;
-  left: 45%;
-  font-size: 140%;
-}
-
-.box4Image {
-  margin-right: 10px; /* 이미지와 텍스트 사이 간격 */
-  border: #2A343D dotted 1px;
-}
-
-.box4Image img {
-  width: 150px; 
-}
-
-.box4Text {
-  font-size: 150%;
+footer button{
+  width: 20%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: none;
+  border-radius: 10px;
   font-weight: bold;
+  font-size: 1.2em;
+  opacity: 0.6;
+  background-color: antiquewhite;
+  cursor: pointer;
+  transition: 1s;
 }
-
-/* 두 번째 상품 두 번쨰 줄*/
-.box5{
-  position: relative;
-  left: 16%;
-  margin-top: 3%;
-  font-size: 140%;
-  width: 84%;
+footer button:hover{
+  opacity: 1;
 }
-
-/* 두 번째 상품 세 번쨰 줄*/
-.box6{
-  position: relative;
-  display: flex;
-  width: 80%;
-  left: 10%;
-  font-size: 140%;
-}
-
-/*상품 구분선*/
-.product1, .product2 {
-  border-top: #2A343D dotted 1px;
-}
-
-a:link,
-a:visited,
-a:hover,
-a:active {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* 작성한 댓글 목록에서의 링크 스타일 추가 */
-.commentBigBox a:link,
-.commentBigBox a:visited,
-.commentBigBox a:hover,
-.commentBigBox a:active {
-  color: #2A343D; /* 링크 색상 변경 */
-  text-decoration: none; /* 밑줄 제거 */
-}
-
