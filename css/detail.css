@@ -10,11 +10,11 @@
 *{
     margin: 0;
     padding: 0;
+    color: black;
+    font-family: 'HakgyoansimWoojuR';
 }
 
 html, body{
-    font-family: 'HakgyoansimWoojuR';
-    color: black;
     height: 100%;
     width: 100%;
 }
