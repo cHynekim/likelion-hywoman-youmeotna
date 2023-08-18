@@ -7,21 +7,6 @@
     font-style: normal;
 }
 
-.logo {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    position: relative;
-    top: 3%;
-}
-.logo img{
-    width: 20%;
-}
-
 *{
     margin: 0;
     padding: 0;
@@ -30,11 +15,85 @@ body{
     width: 100%;
     height: 100%;
     font-family: 'HakgyoansimWoojuR';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+/*header, logo*/
+header a{
+    width: 80%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+header img{
+    width: 20%;
 
 }
-.main{
+
+.search{
+    width: 90%;
+    height: 50px;
+}
+/*main, search bar*/
+.search form{
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.search form input{
+    width: 75%;
+    height: 90%;
+    padding: 0 15px;
+    border: 2px solid #FDAF96;
+    border-radius: 20px;
+    font-size: 0.6em;
+}
+/*main, search bar, buttons*/
+.search form .btn{
+    width: 20%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+/*main, search bar, buttons*/
+.btn button{
+    background-color: #FDAF96;
+    border: none;
+    border-radius: 3px;
+    width: 45%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+.btn button:nth-of-type(2){
+    background-color: #FFF1DB;
+}
+.btn button img{
+    width: 70%;
+    max-width: 30px;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.main{
+    margin: 10px 0;
+    width: 100%;
+    height: 60%;
 
     display: flex;
     flex-direction: column;
@@ -77,12 +136,6 @@ body{
     font-size: 1.2rem;
     font-weight: bold;
 }
-/* #ing{
-    background-color: cadetblue;
-}
-#done{
-    background-color: darkcyan;
-} */
 
 /* Dropdown Button */
 .dropbtn {
