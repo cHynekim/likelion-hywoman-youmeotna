@@ -6,115 +6,144 @@
   font-weight: normal;
   font-style: normal;
 }
-
-html,body {
+*{
+  margin: 0;
+  padding: 0;
   font-family: 'HakgyoansimWoojuR';
+  color: #2A343D;
+  font-size: 16px;
+}
+html, body{
   width: 100%;
   height: 100%;
-  
+  min-height: 645px;
+  background-color: #FDAF96;
 }
-
-body {
-  color: #2A343D;
-}
-
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 8%;
-} 
-
-.name, .pw  {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: #2A343D solid 1px;
-  margin: 0 auto;
-  
-}
-
-.name {
-  padding: 2%;
-  width: 76%;
-}
-
-.pw {
-  padding-top: 2%;
-  padding-bottom: 2%;
-  width: 80%;
-}
-
-.name p, .pw p{
-  font-size: 20px; /*%가 안딤*/
-}
-
-/*메인페이지 주소를 넣으면 a:visited 태그가 활성화*/
-a:visited{
-  color: #2A343D;
-}
-
-.change_pw {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 2%;
-  padding-bottom: 4%;
-  font-size: 18px;
-  
-}
-
-
-.change_pw_btn {
+a{
+  color: #ecf6ff;
   text-decoration: none;
-  
+  display: block;
 }
-
-.btn_container {
-  display: flex;
-  border: 1px solid #2A343D;
-  width: 15%;
-  height: 5%;
-  justify-content: center;
-  align-items: center;
-  margin: 0.5rem auto;
-  padding: 0.8rem 2.4rem;
-  background-color: #FFDEDE;
-}
-
-.start_btn, .login_btn {
-  all: initial; /* 모든 스타일 초기화 */
-  font-family: 'HakgyoansimWoojuR', sans-serif;
+a:hover{
   color: #2A343D;
+  font-weight: bold;
 }
-
-.first {
+.hidden{
+  display: none;
+}
+.logoBox {
+  width: 50%;
+  max-width: 400px;
+  height: 50%;
+  min-width: 343px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin-top: 5%;
+  transition: 0s;
+}
+.logoBox img{
+  object-fit: cover;
 }
 
+/*로고*/
+#wrap{
+  width: 100%;
+  height: 50%;
+  opacity: 0;
+  transition: 1s;
+  position: absolute;
+  bottom: 15%;
+}
+form{
+  width: 70%;
+  height: 100%;
+  /* background-color: aliceblue; */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.signIn{
+  /* background-color: aqua; */
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pw{
+  width: 100%;
+  height: 60%;
+}
+.signIn input{
 
-/* 미디어 쿼리 데스크톱 화면에 대한 스타일 */
-@media screen and (min-width: 1024px) {
-  body {
-    /*overflow: hidden; /* 스크롤 없애기 */
-  }
-  
-  .name p, .pw p {
-    font-size: 200%;
-  }
-
-  .change_pw {
-    font-size: 200%;
-  }
-
-  .first {
-    font-size: 200%;
-  }
-
-  .start_btn p, .login_btn p {
-    font-size: 200%;
-  }
+  border: none;
+  border-bottom: solid 2px #e3e8ed;
+  border-radius: 15px;
+  background-color: transparent;
+  padding: 0 5%;
+  transition: 0.5s;
+}
+.signIn input:focus{
+  transform: scaleX(105%);
+}
+.signIn>input{
+  width: 90%;
+  height: 30%;
+}
+.pw input{
+  width: 90%;
+  height: 50%;
+}
+.pw a {
+  width: 40%;
+  height: 20%;
+  margin: 2% auto;
+  text-align: center;
+  transition: 0.5s;
+}
+.buttons{
+  /* background-color: burlywood; */
+  width: 70%;
+  height: 40%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.buttons a{
+  height: 35%;
+}
+.buttons .first{
+  width: 100%;
+  height: 30%;
+  position: relative;
+}
+.first span{
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 3px;
+}
+.buttons button{
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.buttons a:nth-of-type(2) button{
+  background-color: #ffe9c6;
+}
+.buttons button:hover{
+  transform: scale(105%);
+}
+.buttons button:active{
+  box-shadow: 1px 1px 2px 2px rgba(100, 100, 100, 0.2) inset;
 }

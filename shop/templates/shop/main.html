@@ -1,81 +1,137 @@
 <!DOCTYPE html>
 {% load static %}
+{% load humanize %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static '/css/mainStyle.css' %}" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/mainStyle.css' %}" type="text/css">
+    <link href="{% static 'css/schStyle.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/speechToTextStyle.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/speechToTextScript.js' %}" defer type="text/javascript"></script>
+    <script src="{% static 'js/schScript.js' %}" defer type="text/javascript"></script>
     <script src="{% static 'js/mainScript.js' %}" defer type="text/javascript"></script>
 </head>
 <body>
 {% block content %}
+    <!--음성 인식 모달창-->
+    <div id="modal" class="hide">
+        <div class="sttBox">
+            <div class="info">마이크에 대고 찾으려는 상품을 말해보세요!</div>
+            <div class="status"></div>
+            <div class="output"></div>
+            <div class="sttBtn">
+                <button type="button" class="againBtn">다시 말하기</button>
+                <button type="submit" class="submitBtn">완료</button>
+            </div>
+        </div>
+    </div>
+    <!--음성 인식 모달창 끝-->
+    <div class="sch_focus hide">
+        <div class="header_search">
+            <form method="get" action="{% url 'search:searchResult' %}">
+                {% csrf_token %}
+                <input type="text" placeholder="검색할 상품을 입력해주세요" class="focusSearchBar"> <!--입력-->
+                <div class="focus_btn">
+                    <button type="submit"> <!--확인btn-->
+                        <img src="{% static 'image/searchSubmit.png' %}">
+                    </button>
+                </div>
+            </form>
+        </div>
+        {% if request.user.is_authenticated %}
+        <div class="history">
+            <ul>
+                <span>최근 검색어</span>
+                 {% for history in request.user.searchhistory_set.all|slice:":5" %}
+                <li>
+                    <a href="{% url 'search:searchResult' %}?q={{ history.query }}">{{ history.query }}</a>
+                    <span class="date">{{ history.timestamp|date:"m.d" }}</span>
+                </li>
+            {% endfor %}
+            </ul>
+            <div class="none_history hide">
+                최근 검색 기록이 없습니다.
+            </div>
+                {% endif %}
+        </div>
+        <div class="footer hide">
+            <ul>
+                <li class="remove_history"><a href="">검색 기록 삭제</a></li>
+                <li class="remove_sch_focus"><a href="#">닫기</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--검색창 끝-->
     <div id="wrap">
         <header> <!--헤더, 로고-->
             <a href="#">
                 <img src="{% static 'image/logo.png' %}" alt="logo">
             </a>
         </header>
+        <!--검색창 누르면 생성-->
         <main> <!--메인-->
             <div class="search"> <!--검색창-->
-                <form> <!-- post메소드, enctype 추가 예정 -->
-                    <input type="text" placeholder="검색할 상품을 입력해주세요"> <!--입력-->
+                <form method="get" action="{% url 'search:searchResult' %}">
+                    {% csrf_token %}
+                    <input class="searchBar" type="text" placeholder="검색할 상품을 입력해주세요" name="q" value=""> <!--입력-->
                     <div class="btn">
                         <button type="submit"> <!--확인btn-->
                             <img src="{% static 'image/searchSubmit.png' %}">
                         </button>
-                        <button type="button">
+                        <button type="button" class="sttTrigger">
                             <img src="{% static 'image/mic.png' %}" alt="mic">
                         </button>
                     </div>
                 </form>
-                <div class="bubble">
-                    <img src="{% static 'image/bubble.png' %}">
-                    <span>버튼을 눌러 원하시는 상품을 말해주세요!</span>
+                <div class="bubble hid">
+                    <img src="{% static 'image/bubble_chat.png' %}">
                 </div>
             </div>
             <div class="recommand">
                 <span>추천 상품</span>
                 <div class="product">
                     <div class="nextBtn">
-                        <div><img src="{% static 'image/left.png' %}"></div>
-                        <div><img src="{% static 'image/right.png' %}"></div>
+                        <div class="left"><img src="{% static 'image/left.png' %}"></div>
+                        <div class="right"><img src="{% static 'image/right.png' %}"></div>
                     </div>
-                    {% for product in products %}
-                    <ul class="list">
-                        <li>
-                            <div class="card">
-                                <img src="{{product.image.url}}" style="width:100%"><!--이미지-->
-                                <span class="name"><a href="">{{product.name}}</a></span>
-                                <span class="price">{{product.price}}</span>
-                            </div>
-                        </li>
-<!--                        <li>-->
-<!--                            <div><img src="{{product.image.url}}" style="width:100%"></div> &lt;!&ndash;이미지&ndash;&gt;-->
-<!--                            <span class="name">{{product.name}}</span>-->
-<!--                            <span class="price">{{product.price}}</span>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <div></div> &lt;!&ndash;이미지&ndash;&gt;-->
-<!--                            <span class="name">product3</span>-->
-<!--                            <span class="price">1,000원</span>-->
-<!--                        </li>-->
-                    </ul>
-                    {% endfor %}
+                    <div class="slide">
+                        <ul class="list">
+                            {% for product in products %}
+                            <li>
+                                <a href="{{product.get_absolute_url}}">
+                                    <img src="{{product.image.url}}"> <!--이미지-->
+                                    <span class="name">{{product.name}}</span>
+                                    <span class="price">{{product.price|intcomma}}원</span>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </main>
         <footer>
             <div class="topMenu">
-                <div>배송 조회하기</div>
-                <div>내 정보 확인하기</div>
+                {% if user.is_authenticated %}
+                <a href="{% url 'shipping:shipping' %}"><button>배송 조회하기</button></a>
+
+
+                <a href="{% url 'accounts:userinfo' pk=user.pk %}"><button>내 정보 확인하기</button></a>
+                {% else %}
+                <a href="{% url 'accounts:signup' %}"><button>회원가입 하기</button></a>
+                <a href="{% url 'accounts:login' %}"><button>로그인 하기</button></a>
+                {% endif %}
             </div>
             <div class="botMenu">
-                <div>즐겨찾기 가기</div>
-                <div>장바구니 가기</div>
+                <a href="{% url 'favorites:favorite_products' %}"><button>즐겨찾기 가기</button></a>
+                <a href="{% url 'cart:cart' %}"><button>장바구니 가기</button></a>
             </div>
         </footer>
     </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% endblock %}
 </body>
 </html>

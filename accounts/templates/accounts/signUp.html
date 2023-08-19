@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>곰살마트 : 회원가입</title>
+    <link rel="stylesheet" href="{% static 'css/signUp.css' %}">
+    <link rel="stylesheet" href="{% static 'js/signUp.js' %}">
+</head>
+<body>
+{% block content %}
+<nav class="logo">
+    <img src="{% static 'image/곰살페이지로고.png' %}" alt="" href="{% url 'shop:main' %}">
+</nav>
+<form class="signUp" name="formcheck" method="post" action="{% url 'accounts:signup' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div id="mainTitle">회원가입</div>
+    <div class="center">
+        <div class="name">
+            <div id="title" maxlength="4">
+                <p>이름</p>
+            </div>
+            <input id="name" type="text" placeholder="홍 길 동" onkeyup="checkReg(event)" name="username" value="{{ form.username.value|default_if_none:'' }}">
+            <!-- 이름 조건오류 -->
+            <div id="nameError" class="error">이름이 없습니다</div>
+        </div>
+
+        <div class="birth" id="birthChk">
+            <p id="title">생년월일</p>
+            <div class="birthInput">
+                <input class="birthIn" id="birth1" type="text" placeholder="19XX" maxlength="4" name="birthY" value="{{ form.birthY.value|default_if_none:'' }}">
+                <input class="birthIn" id="birth2" type="text" placeholder="x월" maxlength="2" name="birthM" value="{{ form.birthM.value|default_if_none:'' }}">
+                <input class="birthIn" id="birth3" type="text" placeholder="x일" maxlength="2" name="birthD" value="{{ form.birthD.value|default_if_none:'' }}">
+            </div>
+            <div id="birthError" class="error">생년월일이 없습니다</div>
+        </div>
+
+        <div class="phoneNum">
+            <div id="title">
+                <p>전화번호</p>
+            </div>
+            <input id="phoneNum" type="text" oninput="autoHyphen(this)" placeholder="010-XXXX-XXXX" maxlength="13" name="phonenum" value="{{ form.phonenum.value|default_if_none:'' }}">
+            <div id="phoneNumError" class="error">전화번호가 없습니다</div>
+        </div>
+
+        <div class="id">
+            <div id="title">
+                <p>별명</p>
+            </div>
+            <input id="id" type="text" onkeyup="checkReg(event)" placeholder="2글자 이상 별명을 적어주세요" name="nickname" value="{{ form.nickname.value|default_if_none:'' }}">
+            <!-- 별명 조건오류 -->
+            <div id="idError" class="error">별명이 없습니다</div>
+        </div>
+
+        <div class="password">
+            <div id="title">
+                <p>비밀번호</p>
+            </div>
+            <input id="password" type="password" placeholder="숫자+문자 포함 8자리를 입력해 주세요." name="password1" value="{{ form.password1.value|default_if_none:'' }}">
+            <div id="passwordError" class="error">비밀번호를 입력하세요</div>
+        </div>
+
+        <div class="passwordCheck">
+            <div id="title">
+                <p>비밀번호 재확인</p>
+            </div>
+            <input id="passwordCheck" type="password" placeholder="숫자+문자 포함 8자리를 입력해 주세요." name="password2" value="{{ form.password2.value|default_if_none:'' }}">
+            <div id="passwordCheckError" class="error">비밀번호가 일치하지 않습니다</div>
+        </div>
+
+        <button class="agree" id="agree" type="submit">
+            <p>가입하기</p>
+        </button>
+    </div>
+</form>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상냥하게, 빠르게 곰살마트</title>
+  <link rel="stylesheet" href="{% static 'css/login_page.css' %}">
+   <script type="text/javascript" defer src="{% static 'js/login.js' %}"></script>
+</head>
+<body>
+ <!--start anime-->
+    <div class="logoBox">
+        <img src="{% static 'image/start_logo.png' %}" alt="logo">
+    </div>
+
+{% block content %}
+  <!--login-->
+    <div id="wrap">
+
+  <!--입력폼-->
+  <form method="post" action="{% url 'accounts:login' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="signIn">
+      <input class="logIn" type="text" placeholder="전화번호를 입력하세요" id="name" name="username" value="{{form.phonenum.value|default_if_none:''}}">
+      <div class="pw">
+      <input type="password" placeholder="비밀번호를 입력하세요" id="password" name="password" value="{{form.password.value|default_if_none:''}}">
+    <!--비밀번호 변경-->
+      <a href="#" class="change_pw">비밀번호 변경</a>
+        </div>
+    </div>
+  <!--하단 버튼-->
+            <div class="buttons">
+                <a href="#"><button type="submit">시작하기</button></a>
+                <div class="first"><span>처음이신가요?🤔</span></div>
+                <a href="{% url 'accounts:signup' %}"><button type="button">회원가입하기</button></a>
+            </div>
+      </form>
+ </div>
+{% endblock %}
+</body>
+</html>

@@ -65,9 +65,9 @@ class Cart(object):
             self.save() # 현재 상태를 저장한다.
 
     # 장바구니 비우기
-    def clear(self):
-        self.session[settings.CART_ID] = {}
-        self.session.modified = True
+    def clear(self, request):
+        request.session[settings.CART_ID] = {}
+        request.session.modified = True
 
     # 장바구니 상품의 총 금액
     def get_product_total(self):

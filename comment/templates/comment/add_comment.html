@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>댓글 (임시)</title>
+
+    <style>
+    .rating-stars {
+  display: inline-block;
+  font-size: 0; /* remove whitespace between inline-block elements */
+}
+
+.rating-stars input[type="radio"] {
+  display: none;
+}
+
+.rating-stars label {
+  display: inline-block;
+  font-size: 20px; /* Adjust the font size as needed */
+  cursor: pointer;
+  color: black; /* Default color for unselected stars */
+}
+
+
+.rating-stars input[type="radio"]:checked ~ label {
+  color: gold; /* Selected star color */
+}
+
+.rating-stars input[type="radio"]:checked ~ label ~ input[type="radio"]:not(:checked) ~ label {
+  color: black; /* Unselected star color */
+}
+    </style>
+</head>
+<body>
+
+<h2>Comments</h2>
+<ul>
+  {% for comment in post.comment_set.all %}
+    <li>{{ comment.text }} - {{ comment.user.username }} ({{ comment.created_at }})</li>
+  {% endfor %}
+</ul>
+
+<h2>댓글 작성</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+<div class="rating-stars">
+     <input type="radio" name="rating" value="1" id="star1">
+    <label for="star1">★</label>
+    <input type="radio" name="rating" value="2" id="star2">
+    <label for="star2">★</label>
+    <input type="radio" name="rating" value="3" id="star3">
+    <label for="star3">★</label>
+    <input type="radio" name="rating" value="4" id="star4">
+    <label for="star4">★</label>
+    <input type="radio" name="rating" value="5" id="star5">
+    <label for="star5">★</label>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>
