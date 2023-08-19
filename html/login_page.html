@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로그인 페이지</title>
-  <link rel="stylesheet" href="../css/login_page.css">
-  <script src="../js/login.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상냥하게, 빠르게 곰살마트</title>
+    <link rel="stylesheet" href="../css/login_page.css">
+    <script type="text/javascript" defer src="../js/login.js"></script>
 </head>
 <body>
-  <!--로고-->
-  <div class="logo">
-    <img src="../image/login_logo.png" alt="login_logo" width="25%">
-  </div>
-  <!--입력폼-->
-  <form>
-    <div class="name">
-      <input type="text" placeholder="전화번호를 입력하세요" id="name">
+  <!--start anime-->
+    <div class="logoBox">
+        <img src="../image/start_logo.png" alt="logo">
     </div>
-    <div class="pw">
-      <input type="password" placeholder="비밀번호를 입력하세요" id="password">
+
+    <!--login-->
+    <div id="wrap">
+      <!--입력폼-->
+        <form>
+            <div class="signIn">
+                <input class="logIn" type="text" placeholder="전화번호를 입력하세요" id="name">
+                <div class="pw">
+                  <input type="password" placeholder="비밀번호를 입력하세요" id="password">
+                  <a href="#" class="change_pw">비밀번호 변경</a>
+                </div>
+            </div>
+            <!--비밀번호 변경-->
+            
+            <!--하단 버튼-->
+            <div class="buttons">
+                <a href="#"><button type="submit">시작하기</button></a>
+                <div class="first"><span>처음이신가요?🤔</span></div>
+                <a href="#"><button type="submit">회원가입하기</button></a>
+            </div>
+        </form>
     </div>
-    <!--비밀번호 변경-->
-    <a href="#" class="change_pw">비밀번호 변경</a>
-    <!--하단 버튼-->
-    <a href="../html/main.html" class="start">시작하기</a>
-    <div class="joinContainer">
-      <div class="first">처음이신가요?</div>
-      <a href="../html/signUp.html" class="join">회원가입하기</a>
-    </div>
-  </form>
 </body>
 </html>

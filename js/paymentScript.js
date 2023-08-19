@@ -117,6 +117,9 @@ for(let i = 0; i<productPrice.length; i++){
     paySum += intPrice * parseInt(productAmount[i].innerText);
 }
 sumEl.innerText = `${numberWithCommas(paySum)} 원`;
+
+document.cookie = 'cookie1=value1; SameSite=Lax';
+document.cookie = 'cookie2=value2; SameSite=None; Secure';
 //결제 API
 var IMP = window.IMP; // 생략 가능
     IMP.init("imp85415064"); // 예: imp00000000
@@ -126,12 +129,14 @@ let productName = document.querySelector('.dropbtn2').innerText;
 let address = document.querySelectorAll('.second p'),
     allAddress = address[0].innerText+' '+address[1].innerText;
 let succeed = true;
+let date = new Date;
 document.querySelector('.inicis_pay').onclick = function requestPay() {
     // IMP.request_pay(param, callback) 결제창 호출
     IMP.request_pay({ // param
         pg: "html5_inicis",
         pay_method: "card",
-        merchant_uid: "ORD20180131-0000013",
+        // ORD${date.getDate()}${date.getMonth()}${date.getFullYear}
+        merchant_uid: `ORD-${date.getTime()}${date.getDate}${date.getMonth()+1}${date.getFullYear()}`,
         name: `${productName}`,
         amount: 100,
         buyer_email: "liaco819@naver.com",
@@ -155,7 +160,7 @@ $(".kakao_pay").click(function(){
     IMP.request_pay({ // param
         pg: "kakaopay",
         pay_method: "card",
-        merchant_uid: "ORD20180131-0000011",
+        merchant_uid: `ORD-${date.getTime()}${date.getDate}${date.getMonth()+1}${date.getFullYear()}`,
         name: `${productName}`,
         amount: 100,
         buyer_email: "liaco819@naver.com",

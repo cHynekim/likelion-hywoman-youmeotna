@@ -6,9 +6,24 @@
     <link rel="stylesheet" href="../css/tracking.css">
 </head>
 <body>
-    <nav class="logo">
-        <img src="../image/logo.png" alt="">
-    </nav>
+    <header> <!--헤더, 로고-->
+        <a href="#">
+            <img src="../image/logo.png" alt="logo">
+        </a>
+    </header>
+    <div class="search"> <!--검색창-->
+        <form>
+            <input class="searchBar" type="text" placeholder="검색할 상품을 입력해주세요"> <!--입력-->
+            <div class="btn">
+                <button type="submit"> <!--확인btn-->
+                    <img src="../image/searchSubmit.png">
+                </button>
+                <button type="button" class="sttTrigger">
+                    <img src="../image/mic.png" alt="mic">
+                </button>
+            </div>
+        </form>
+    </div>  
 
     <form action="" class="main">
         <div class="box" id="ing">

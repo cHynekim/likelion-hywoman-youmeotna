@@ -10,13 +10,13 @@
 *{
     margin: 0;
     padding: 0;
+    color: black;
+    font-family: 'HakgyoansimWoojuR';
 }
 
 html, body{
-    font-family: 'HakgyoansimWoojuR';
-    color: black;
-    /* width: 100%; 얘네한테 100%줘야 전체 쓸 수 있다 */
     height: 100%;
+    width: 100%;
 }
 
 body{
@@ -38,29 +38,29 @@ body{
 
     font-size: 1.5rem;
     font-weight: bold;
-
 }
-.glass{
+.header > p{
+    width: 80%;
+    position: relative;
+    left: 40%;
+}
+.searchBtn{
+    width: 20%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    width: 15%;
+    align-items: center;
+}
+.searchBtn > a{
+    width: 50%;
     height: 50%;
-}
-.plus{
-    border-radius: 10px 0 0 10px;
-    background-color: #ffeeee;
-    border: 0.8px solid gray;
-    width: 100%;
-    font-size: 1.2rem;
-}
-.minus{
-    border-radius: 0 10px 10px 0;
     background-color: rgb(255, 184, 160);
-    border: 0.8px solid gray;
-    width: 100%;
-    font-size: 1.2rem;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
 }
 /* 상품 이미지 */
 .m-img{
@@ -70,7 +70,6 @@ body{
     flex-direction: row; /*가로*/
     justify-content: center;/*축방향으로*/
     align-items: center;
-
     height: 25%;
 }
 .m-img > img{
@@ -89,7 +88,7 @@ body{
     align-items: center;
 }
 .star{
-    width: 35%;
+    width: 300px;
     height: 60px;
     position: relative;
     left: 20px;
@@ -152,13 +151,14 @@ li {
 
 .tab_menu {
     width: 100%;
-    height: 45%;
+    height: 35%;
 }
 
 .tab {
     display: flex;
     width: 100%;
     height: 20%;
+    
 }
 .tab > li:hover{
     text-decoration: underline 1px;
@@ -166,15 +166,13 @@ li {
 }
 /* 탭메뉴1,2 */
 .tab_item {
-    /* border: 1px solid rgb(255, 201, 180); */
-    padding: 10px 20px;
     border-radius: 6px;
     width: 50%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
+    
     font-size: 1.3rem;
     font-weight: bold;
     letter-spacing: 1.2px;
@@ -182,17 +180,21 @@ li {
 
 .tab_inner_wrap {
     border-radius: 6px;
-    height: 100%;
+    height:80%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 /* 설명 및 별점 */
 .tab_inner {
-    padding: 20px;
     color: black;
     font-size: 1.4rem;
     display: none;
     position: relative;
-    top: 20px;
+    margin: 15px;
+    height: auto;
 }
+
 /* 탭메뉴1 */
 .tab_item.active {
     background-color: rgb(255, 184, 160);
@@ -223,6 +225,7 @@ li {
     position: relative;
     top: 10px;
     width: 100%;
+    margin: 10px 0;
 }
 
 .people{
@@ -293,7 +296,7 @@ li {
 /* 장바구니, 결제하기 버튼 */
 .bottom{
     width: 100%;
-    height: 15%;
+    height: 10%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -309,14 +312,21 @@ li {
     flex-direction: row;
     justify-content: center;
 }
-.cartBtn > button{
+.cartBtn >form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.cartBtn >form> button{
     width: 80%;
     background-color: #ffe8e8;
     border-radius: 8px;
     border-style: none;
     cursor: pointer;
 }
-.cartBtn button:hover{
+.cartBtn > form > button:hover{
     background-color: hsl(0, 100%, 89%);
     transition: all 200ms ease;
 }

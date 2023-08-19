@@ -25,11 +25,31 @@ html,body {
 .logo{
   display: block;
   margin: 0 auto;
+  width: auto;
+  height: 10%;
+}
+header{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+/*header, logo*/
+header a{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+header img{
+  height: 100%;
 }
 
 .search{
   width: 100%;
-  height: 20%;
+  height: 10%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -55,7 +75,7 @@ html,body {
 
 .search form .btn{
   width: 20%;
-  height: 90%;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -66,7 +86,8 @@ html,body {
   border: none;
   border-radius: 3px;
   width: 45%;
-  height: 100%;
+  max-width: 100px;
+  height: auto;
   position: relative;
   cursor: pointer;
 }
@@ -76,7 +97,8 @@ html,body {
 }
 
 .btn button img{
-  width: 70%;
+  width: 50%;
+  height: auto;
   max-width: 30px;
   object-fit: cover;
   position: absolute;
@@ -117,9 +139,9 @@ html,body {
   display: block;
   float: left;
 }
-
 .basketdiv .row > .subdiv:nth-child(1) {
   width: 50%;
+  
 }
 
 .basketdiv .row > .subdiv:nth-child(2) {
@@ -142,10 +164,15 @@ left: 20%;
   margin: 0;
   padding: 12px 0;
 }
-
+.basketdiv .row.data{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .basketdiv .row.data > div > div {
-  height: 60px;
-  line-height: 60px;
+  height: auto;
+  line-height: 30px;
 }
 
 .basketdiv .img{
@@ -154,14 +181,14 @@ left: 20%;
 
 .basketdiv .pname{
   width: 70%;
+  
 }
-
-.basketdiv2 .pname {
-  width: 80%;
+.pname > a {
+  height: auto;
+  
 }
-
 .basketdiv .basketprice {
-  width: 33%;
+  width: 30%;
 }
 
 .abutton:link, .abutton:visited, .abutton:active {
@@ -186,4 +213,68 @@ left: 20%;
 
 .product-link:hover {
   text-decoration: none; /* 커서가 올라갔을 때 밑줄 제거 */
+
+}
+@media screen and (max-width:576px) {
+  .orderForm{
+
+      width:100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-self: center;
+      align-items: center;
+
+  }
+
+  .basketdiv .pname{
+      width: 60%;
+      height: auto;
+      /* background-color: #0075ff; */
+
+  }
+  .basketdiv .basketprice {
+      width: 30%;
+      /* background-color: #9f9fbe; */
+  }
+  .basketdiv .num {
+      width: 30%;
+    min-width: 105px;
+    /* background-color: #d3e2c6; */
+  }
+  .basketdiv .sum {
+      width: 30%;
+    max-width: 80px;
+      color: #025fc9;
+  }
+
+  .basketdiv .row > .subdiv:nth-child(1) {
+      width: 35%;
+  }
+
+
+  .basketdiv .row > .subdiv:nth-child(2) {
+      width: 55%;
+  }
+  .basketdiv .row > .subdiv:nth-child(3) {
+      width: 10%;
+  }
+  .pname{
+    height: auto;
+  }
+}
+@media screen and (min-width:1200px){
+  html{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  body{
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+
+  }
 }
