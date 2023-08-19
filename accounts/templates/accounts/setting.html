@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/setting.css' %}">
+  <title>설정</title>
+  {% block contents %}
+</head>
+<body>
+  <!--상단 로고-->
+  <a href="{% url 'shop:main' %}"><img src="{% static 'image/logo.png' %}" class="logo" width="300px"></a>
+  <!--인사-->
+  <div class="hello">
+    <p><span id="userName">{{ request.user.phonenum }} 회원님, 환영합니다!</span></p>
+  </div>
+  <!-- 유저 개인정보 -->
+  <div class="bigContainer">
+    <div class="userInform">
+        <p><b>회원정보</b></p>
+    <div class="nickname">
+      <p>닉네임: <span> {{ request.user.nickname }} </span></p>
+    </div>
+    <div class="birthday">
+      <p>생년월일: <span> {{ request.user.birthY }} 년 {{ request.user.birthM }} 월 {{ request.user.birthD }} 일</span></p>
+    </div>
+    <form class="logout">
+      <a href="{% url 'accounts:logout' %}"><b>로그아웃</b></a>
+    </form>
+
+
+    <p><b class="commentTitle">작성한 댓글 목록</b></p>
+
+    {% for comment in user_comments %}
+
+      <div class="commentBigBox">
+        <div class="product1">
+          <div class="box1">
+            <div class="box1Image">
+              <a href="{{ comment.product.get_absolute_url }}">
+                <img src="{{ comment.product.image.url }}">
+              </a>
+            </div>
+            <div class="box1Text">
+              <a href="{{ comment.product.get_absolute_url }}">
+                <p>{{ comment.product.name }}</p>
+              </a>
+            </div>
+            <div class="box1Date">
+              <p>{{ comment.created_at }}</p>
+            </div>
+          </div>
+          <div class="box2">
+            {% for i in '★★★★★' %}
+                {% if forloop.counter <= comment.rating %}
+                    <span class="stars"><img src="{% static 'image/star.png' %}" class="star{{ forloop.counter }}"></span>
+                {% else %}
+                    <span class="stars"><img src="{% static 'image/unstar.png' %}" class="star{{ forloop.counter }}"></span>
+                {% endif %}
+                    {% endfor %}
+          </div>
+          <div class="box3">
+            <div class="edit-comment-form">
+  <p><a href="{% url 'comment:edit' comment.id %}">
+    수정
+  </a></p>
+            <p>{{ comment.text }}</p>
+          </div>
+</div>
+        </div>
+    {% empty %}
+    <p><span class="comment1Text">작성하신 리뷰가 없습니다.</span></p>
+    {% endfor %}
+    </div>
+  </div>
+  {% endblock %}
+</body>
+</html>

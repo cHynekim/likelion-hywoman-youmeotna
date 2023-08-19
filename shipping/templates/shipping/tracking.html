@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배송조회</title>
+    <link href="{% static 'css/speechToTextStyle.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/schStyle.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/tracking.css' %}">
+    <script src="{% static 'js/speechToTextScript.js' %}" defer type="text/javascript"></script>
+    <script src="{% static 'js/schScript.js' %}" defer type="text/javascript"></script>
+</head>
+  {% block contents %}
+<body>
+    <!--음성 인식 모달창-->
+    <div id="modal" class="hide">
+        <div class="sttBox">
+            <div class="info">마이크에 대고 찾으려는 상품을 말해보세요!</div>
+            <div class="status"></div>
+            <div class="output"></div>
+            <div class="sttBtn">
+                <button type="button" class="againBtn">다시 말하기</button>
+                <button type="submit" class="submitBtn">완료</button>
+            </div>
+        </div>
+    </div>
+    <!--음성 인식 모달창 끝-->
+    <div class="sch_focus hide">
+        <div class="header_search">
+            <form method="get" action="{% url 'search:searchResult' %}">
+                {% csrf_token %}
+                <input type="text" placeholder="검색할 상품을 입력해주세요" class="focusSearchBar"> <!--입력-->
+                <div class="focus_btn">
+                    <button type="submit"> <!--확인btn-->
+                        <img src="{% static 'image/searchSubmit.png' %}">
+                    </button>
+                </div>
+            </form>
+        </div>
+        {% if request.user.is_authenticated %}
+        <div class="history">
+            <ul>
+                <span>최근 검색어</span>
+                 {% for history in request.user.searchhistory_set.all|slice:":5" %}
+                <li>
+                    <a href="{% url 'search:searchResult' %}?q={{ history.query }}">{{ history.query }}</a>
+                    <span class="date">{{ history.timestamp|date:"m.d" }}</span>
+                </li>
+            {% endfor %}
+            </ul>
+            <div class="none_history hide">
+                최근 검색 기록이 없습니다.
+            </div>
+                {% endif %}
+        </div>
+        <div class="footer hide">
+            <ul>
+                <li class="remove_history"><a href="">검색 기록 삭제</a></li>
+                <li class="remove_sch_focus"><a href="#">닫기</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--검색창 끝-->
+
+        <header> <!--헤더, 로고-->
+            <a href="{% url 'shop:main' %}">
+                <img src="{% static 'image/logo.png' %}" alt="logo">
+            </a>
+        </header>
+<!--로고-->
+
+<div class="search"> <!--검색창-->
+    <form method="get" action="{% url 'search:searchResult' %}">
+      {% csrf_token %}
+        <input class="searchBar" type="text" placeholder="검색할 상품을 입력해 주세요." aria-label="Search" name="q"> <!--입력-->
+        <div class="btn">
+            <button type="submit"> <!--확인btn-->
+                <img src="{% static 'image/searchSubmit.png' %}">
+            </button>
+            <button type="button" class="sttTrigger">
+                <img src="{% static 'image/mic.png' %}" alt="mic">
+            </button>
+        </div>
+    </form>
+  </div>
+
+
+    <form action="" class="main">
+        <div class="box" id="ing">
+            <p class="title">배송중</p>
+            <div class="ingContents">
+                {% for shipping in transit_shippings %}
+                <p class="date">{{ shipping.delivery_date.month }}월 {{ shipping.delivery_date.day }}일</p>
+
+                <div class="dropdown">
+                    <button onclick="myFunction(event)" class="dropbtn">
+                        <p>{{ shipping.bundle }}</p>  <img src="{% static 'image/Group 8763.png' %}" alt="">
+                    </button>
+                    <div id="myDropdown1" class="dropdown-content">
+                      {% for product in shipping.products.all %}
+              <a href="{{ product.get_absolute_url }}">{{ product }}</a>
+                        {% if not forloop.last %}
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="box" id="done">
+            <p class="title">배송완료</p>
+
+            {% for shipping in delivered_shippings %}
+            <div class="ingContents">
+                <p class="date">{{ shipping.delivery_date.month }}월 {{ shipping.delivery_date.day }}일</p>
+
+                <div class="dropdown">
+                    <button onclick="myFunction2(event)" class="dropbtn" id="dropbtn2">
+                        <p>{{ shipping.bundle }}</p> <img src="{% static 'image/Group 8763.png' %}" alt="">
+                    </button>
+                    <div id="myDropdown2" class="dropdown-content" >
+                        {% for product in shipping.products.all %}
+                        <a href="{{ product.get_absolute_url }}">{{ product }}<a href="{% url 'comment:create' product.id %}"><button class="review">후기 작성</button></a></a>
+                        {% if not forloop.last %}
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <p></p>
+
+            </div>
+            {% endfor %}
+        </div>
+    </form>
+    <script src="{% static 'js/tracking.js' %}"></script>
+  {% endblock %}
+</body>
+</html>

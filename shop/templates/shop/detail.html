@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+{% load humanize %}
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세페이지</title>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+</head>
+<body>
+{% block content %}
+    <header class="header">
+        <p>{{product.name}}</p>
+        <a href="{% url 'shop:main' %}" class="searchBtn">
+            <img src="{% static 'image/searchSubmit.png' %}" alt="">
+        </a>
+
+    </header>
+    <!--상품 이미지 -->
+    <div class="m-img">
+        <img src="{{product.image.url}}" alt="">
+    </div>
+    <!-- 즐겨찾기 및 가격 정보 -->
+    <div class="middle">
+
+        <!-- 즐겨찾기 backend 추가 -->
+<form method="post" action="{% url 'favorites:toggle_favorite' product.id %}">
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+        <button type="submit" class="star" id="star">
+            {% if user in product.favorite_products.all %}
+                즐겨찾기 해제
+            {% else %}
+                즐겨찾기
+            {% endif %}
+        </button>
+    {% else %}
+        <p> &nbsp; 즐겨찾기는 <a href="{% url 'accounts:login' %}">로그인</a>후 가능합니다.</p>
+    {% endif %}
+</form>
+
+        <div class="middle-info">
+            <p>우리 집까지 {{product.delivery_date}}일 소요</p>
+            <div class="middle-info2">
+<!--                <p>0%</p>-->
+                <div class="basketprice">
+                    <input type="hidden" class="p_price" name="p_price" id="p_price1" value="{{product.price}}">
+                    {{product.price}}원
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 상세설명 및 별점 -->
+    <div class="tab_menu">
+        <ul class="tab">
+            <li class="tab_item active">상품설명</li>
+            <li class="tab_item">후기 및 별점</li>
+        </ul>
+        <div class="tab_inner_wrap">
+            <div class="tab_inner active">{{product.description}}</div>
+            <div class="tab_inner">
+                <div class="starPoint">
+<!--                    장고_유저 코멘트 불러오기-->
+                    <p>평점</p>
+                    <img src="{% static 'image/Star 2.png' %}" alt="">
+                    <p>{{ average_rating }}</p>
+
+                </div>
+                {% for comment in product.comment_set.all %}
+                <div class="comment">
+                    <img src="{% static 'image/people_img.png' %}" alt="" class="people">
+                    <p>{{ comment.text }}</p>
+                      {% for i in '★★★★★' %}
+                {% if forloop.counter <= comment.rating %}
+                    <span class="stars"><img src="{% static 'image/star.png' %}" class="star{{ forloop.counter }}"></span>
+                {% else %}
+                    <span class="stars"><img src="{% static 'image/unstar.png' %}" class="star{{ forloop.counter }}"></span>
+                {% endif %}
+                    {% endfor %}
+                </div>
+                {% empty %}
+                <div class="comment">
+                <p>아직 등록된 리뷰가 없습니다.</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    <!-- 수량설정 및 장바구니,바로결제버튼 -->
+    <form class="num" method="post">
+        {% csrf_token %}
+        <p>수량</p>
+
+        <div class="updown">
+            <img src="{% static 'image/minus_btn.png' %}" alt="" onclick="count('minus')" value="-">
+            <div type="text" name="p_num1" id="result" size="2" maxlength="4" class="p_num">0</div>
+            <!-- input.value로 가져갈 수 있음 -->
+            <img src="{% static 'image/plus_btn.png' %}" onclick="count('plus')">
+        </div>
+    </form>
+
+    <div class="bottom">
+        <div class="cartBtn">
+            <form action="{% url 'cart:product_add' product.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">
+                <span class="font">장바구니 담기</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="buyBtn">
+            <button>
+                <p class="font">바로 결제하기</p>
+            </button>
+        </div>
+
+    </div>
+
+    <script src="{% static 'js/detail.js' %}"></script>
+{% endblock %}
+</body>
+</html>
